@@ -62,7 +62,7 @@ Game * __sg = nil;
         field = [[Field alloc] init];
         field.position = ccp( size.width /2 , size.height/2 );
         [self addChild:field];
-        
+        [field restoreFieldFromDTO];
         
         CGSize nw = frame.boundingBox.size;
         
@@ -317,6 +317,7 @@ Game * __sg = nil;
     
     [GameDTO dto].turnLimit = @([GameDTO dto].turnLimit.integerValue - 1);
     [turnsLabel setString:[NSString stringWithFormat:@"%05d", [GameDTO dto].turnLimit.integerValue]];
+    [field prepareFieldForSaving];
     [[GameDTO dto] save];
 }
 

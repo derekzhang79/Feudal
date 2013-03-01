@@ -10,6 +10,7 @@
 #import "cocos2d.h"
 
 typedef enum FIELD_OBJECT_TYPE {
+    FO_INVALID = 0,
     FO_FOOD = 1,
     FO_CREATURE = 2,
     FO_RELIGION = 3,

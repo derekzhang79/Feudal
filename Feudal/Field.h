@@ -38,7 +38,8 @@
 
 
 -(void)initialSetupTest;
-
+-(void)prepareFieldForSaving;
+-(void)restoreFieldFromDTO;
 
 @property int executionCounter;
 

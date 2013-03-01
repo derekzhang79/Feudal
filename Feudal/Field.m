@@ -8,6 +8,7 @@
 
 #import "Field.h"
 #import "Game.h"
+#import "GameDTO.h"
 
 
 @implementation Field
@@ -381,6 +382,34 @@ static int offsets[4][2] = {{-1, 0}, {0, -1}, {1, 0}, {0, 1}};
     map[creature.x + creature.y * 6] = creature;
         
     return true;
+}
+
+-(void)prepareFieldForSaving {
+    NSMutableArray *levels = [NSMutableArray arrayWithCapacity:36];
+    NSMutableArray *types = [NSMutableArray arrayWithCapacity:36];
+    
+    for(int i = 0; i < 36; ++i) {
+        [types addObject:@(map[i].objectType)];
+        [levels addObject:@(map[i].level)];
+    }
+    
+    [GameDTO dto].levels = [levels copy];
+    [GameDTO dto].types = [types copy];
+}
+
+-(void)restoreFieldFromDTO {
+    if([GameDTO dto].types == nil || [GameDTO dto].levels == nil){
+        return;
+    }
+    
+    for(int i = 0; i < 36; ++i) {
+        int type = [[[GameDTO dto].types objectAtIndex:i] intValue];
+        if(type != FO_INVALID) {
+            int level = [[[GameDTO dto].levels objectAtIndex:i] intValue];
+            FieldObject *obj = [[FieldObject alloc] initWithType:type :level];
+            [self put:obj y:i / 6 x:i % 6 :NO];
+        }
+    }
 }
 
 @end

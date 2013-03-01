@@ -15,6 +15,8 @@
 @property (nonatomic, strong) NSNumber *score;
 @property (nonatomic, strong) NSNumber *turnLimit;
 @property (nonatomic, strong) NSNumber *turnCount;
+@property (nonatomic, strong) NSArray *types;
+@property (nonatomic, strong) NSArray *levels;
 
 + (GameDTO *) dto;
 - (void) save;
