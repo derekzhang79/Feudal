@@ -41,6 +41,8 @@
 -(void)prepareFieldForSaving;
 -(void)restoreFieldFromDTO;
 
+-(BOOL)isFreeSpace;
+
 @property int executionCounter;
 
 @property int scoreBonus;

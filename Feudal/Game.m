@@ -11,6 +11,7 @@
 #import "Field.h"
 #import "Shop.h"
 #import "GameDTO.h"
+#import "MainMenu.h"
 
 #define sc(x) x / [UIScreen mainScreen].scale
 
@@ -317,8 +318,10 @@ Game * __sg = nil;
     
     [GameDTO dto].turnLimit = @([GameDTO dto].turnLimit.integerValue - 1);
     [turnsLabel setString:[NSString stringWithFormat:@"%05d", [GameDTO dto].turnLimit.integerValue]];
+    
     [field prepareFieldForSaving];
     [[GameDTO dto] save];
+    [self checkEndGameState];
 }
 
 -(void)updateGameState {
@@ -345,6 +348,15 @@ Game * __sg = nil;
 
     [moneySpr runAction:[CCSequence actions:moveAction, cleanFlashAction, nil]];
 
+}
+
+-(void)checkEndGameState {
+    if([field isFreeSpace] == NO) {
+        //  Game over
+        [GameDTO dto].levels = nil;
+        [GameDTO dto].types = nil;
+        [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[MainMenu scene] withColor:ccWHITE]];
+    }
 }
 
 

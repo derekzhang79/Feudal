@@ -412,4 +412,13 @@ static int offsets[4][2] = {{-1, 0}, {0, -1}, {1, 0}, {0, 1}};
     }
 }
 
+-(BOOL)isFreeSpace
+{
+    for(int i = 0; i < 36; ++i) {
+        if(map[i] == nil)
+            return YES;
+    }
+    return NO;
+}
+
 @end
