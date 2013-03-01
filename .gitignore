@@ -1,2 +1,8 @@
 
 *.xcuserstate
+
+.DS_Store
+
+*.xcuserstate
+
+Feudal.xcodeproj/project.xcworkspace/xcuserdata/ret.xcuserdatad/UserInterfaceState.xcuserstate
