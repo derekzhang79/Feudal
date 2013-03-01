@@ -80,7 +80,7 @@
     }
     else{
         self.money = @(100);
-        self.turnLimit = @(1000);
+        self.turnLimit = @(TURN_LIMIT);
     }
 }
 
