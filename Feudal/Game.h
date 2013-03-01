@@ -12,7 +12,6 @@
 #import "FieldObject.h"
 #import "Field.h"
 
-
 @interface Game : CCLayer// <GKAchievementViewControllerDelegate, GKLeaderboardViewControllerDelegate>
 {
     NSMutableArray * next;

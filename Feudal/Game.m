@@ -11,6 +11,7 @@
 #import "Field.h"
 #import "Shop.h"
 #import "GameDTO.h"
+#import "MainMenu.h"
 
 #define sc(x) x / [UIScreen mainScreen].scale
 
@@ -62,7 +63,7 @@ Game * __sg = nil;
         field = [[Field alloc] init];
         field.position = ccp( size.width /2 , size.height/2 );
         [self addChild:field];
-        
+        [field restoreFieldFromDTO];
         
         CGSize nw = frame.boundingBox.size;
         
@@ -118,7 +119,7 @@ Game * __sg = nil;
         menu.position = [frame convertToWorldSpace:ccp(nw.width / 2 + sc(190), nw.height / 2 - sc(444))];
         
         //menu.position = ccp(100, 100);
-        
+        [[NSTimer scheduledTimerWithTimeInterval:30.0f target:self selector:@selector(updateTurnLimit) userInfo:nil repeats:YES] fire];
 	}
 	return self;
 }
@@ -317,7 +318,10 @@ Game * __sg = nil;
     
     [GameDTO dto].turnLimit = @([GameDTO dto].turnLimit.integerValue - 1);
     [turnsLabel setString:[NSString stringWithFormat:@"%05d", [GameDTO dto].turnLimit.integerValue]];
+    
+    [field prepareFieldForSaving];
     [[GameDTO dto] save];
+    [self checkEndGameState];
 }
 
 -(void)updateGameState {
@@ -346,5 +350,32 @@ Game * __sg = nil;
 
 }
 
+-(void)checkEndGameState {
+    if ([field isFreeSpace] == NO) {
+        //  Game over
+        [GameDTO dto].levels = nil;
+        [GameDTO dto].types = nil;
+        [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[MainMenu scene] withColor:ccWHITE]];
+    }
+}
+
+- (void) updateTurnLimit {
+    NSDate *now = [NSDate date];
+    
+    if ([GameDTO dto].lastUpdateTime == nil) {
+        [GameDTO dto].lastUpdateTime = now;
+    }
+    
+    NSTimeInterval difference = [now timeIntervalSinceDate:[GameDTO dto].lastUpdateTime];
+    NSLog(@"%.0f", difference);
+    int n = difference / (6 * 60);
+    if (n >= 1) {
+        [GameDTO dto].lastUpdateTime = now;
+        int turnLimit = [[GameDTO dto].turnLimit intValue];
+        turnLimit += n;
+        [GameDTO dto].turnLimit = @(MIN(turnLimit, TURN_LIMIT));
+        [self updateGameState];
+    }
+}
 
 @end

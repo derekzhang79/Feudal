@@ -38,7 +38,10 @@
 
 
 -(void)initialSetupTest;
+-(void)prepareFieldForSaving;
+-(void)restoreFieldFromDTO;
 
+-(BOOL)isFreeSpace;
 
 @property int executionCounter;
 

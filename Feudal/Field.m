@@ -8,6 +8,7 @@
 
 #import "Field.h"
 #import "Game.h"
+#import "GameDTO.h"
 
 
 @implementation Field
@@ -237,7 +238,14 @@ static int offsets[4][2] = {{-1, 0}, {0, -1}, {1, 0}, {0, 1}};
 }
 
 -(void)drop:(FieldObject *) fo X:(int) x Y:(int)y {
-
+    if (fo.objectType == FO_SPECIAL && fo.level == 0) {
+        FieldObject *objectToDrop = [self objectAtX:x Y:y];
+        [objectToDrop.view removeFromParentAndCleanup:YES];
+        [fo.view removeFromParentAndCleanup:YES];
+        map[x + y * 6] = nil;
+        return;
+    }
+    
     [self put:fo y:y x:x :YES];
     
     if (fo.objectType == FO_CREATURE && fo.level == 0) {
@@ -255,15 +263,23 @@ static int offsets[4][2] = {{-1, 0}, {0, -1}, {1, 0}, {0, 1}};
     int x = pt.x / cellSZ;
     int y = pt.y / cellSZ;
 
-    
-    if ([self objectAtX:x Y:y] == nil) {
-        [self drop:obj X:x Y:y];
-                
-        return true;
-    } else  {
-        return false;
+    if (obj.objectType == FO_SPECIAL) {
+        if ([self objectAtX:x Y:y] == nil) {
+            return false;
+        }
+        else {
+            [self drop:obj X:x Y:y];
+            return true;
+        }
+    } else {
+        if ([self objectAtX:x Y:y] == nil) {
+            [self drop:obj X:x Y:y];
+                    
+            return true;
+        } else  {
+            return false;
+        }
     }
-
 }
 
 -(CGPoint)truncate:(CGPoint) pt {
@@ -381,6 +397,43 @@ static int offsets[4][2] = {{-1, 0}, {0, -1}, {1, 0}, {0, 1}};
     map[creature.x + creature.y * 6] = creature;
         
     return true;
+}
+
+-(void)prepareFieldForSaving {
+    NSMutableArray *levels = [NSMutableArray arrayWithCapacity:36];
+    NSMutableArray *types = [NSMutableArray arrayWithCapacity:36];
+    
+    for(int i = 0; i < 36; ++i) {
+        [types addObject:@(map[i].objectType)];
+        [levels addObject:@(map[i].level)];
+    }
+    
+    [GameDTO dto].levels = [levels copy];
+    [GameDTO dto].types = [types copy];
+}
+
+-(void)restoreFieldFromDTO {
+    if([GameDTO dto].types == nil || [GameDTO dto].levels == nil){
+        return;
+    }
+    
+    for(int i = 0; i < 36; ++i) {
+        int type = [[[GameDTO dto].types objectAtIndex:i] intValue];
+        if(type != FO_INVALID) {
+            int level = [[[GameDTO dto].levels objectAtIndex:i] intValue];
+            FieldObject *obj = [[FieldObject alloc] initWithType:type :level];
+            [self put:obj y:i / 6 x:i % 6 :NO];
+        }
+    }
+}
+
+-(BOOL)isFreeSpace
+{
+    for(int i = 0; i < 36; ++i) {
+        if(map[i] == nil)
+            return YES;
+    }
+    return NO;
 }
 
 @end
