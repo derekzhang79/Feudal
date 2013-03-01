@@ -10,6 +10,7 @@
 #import "AppDelegate.h"
 #import "Field.h"
 #import "Shop.h"
+#import "GameDTO.h"
 
 #define sc(x) x / [UIScreen mainScreen].scale
 
@@ -80,13 +81,13 @@ Game * __sg = nil;
         moneyLabel.color = ccc3(128, 64, 0);
         [self addChild:moneyLabel];
         moneyLabel.position = [frame convertToWorldSpace:ccp(nw.width / 2 - sc(140), nw.height - sc(98))];
-
+        
         turnsLabel = [CCLabelTTF labelWithString:@"00000" fontName:@"Old London Alternate" fontSize:sc(48)];
         turnsLabel.color = ccc3(128, 64, 0);
         [self addChild:turnsLabel];
         turnsLabel.position = [frame convertToWorldSpace:ccp(nw.width / 2 + sc(127), nw.height - sc(98))];
         
-        
+        [self updateGameState];
         
         
 
@@ -314,16 +315,18 @@ Game * __sg = nil;
     NSLog(@"Finished!!!");
     [field moveUnits];
     
+    [GameDTO dto].turnLimit = @([GameDTO dto].turnLimit.integerValue - 1);
+    [turnsLabel setString:[NSString stringWithFormat:@"%05d", [GameDTO dto].turnLimit.integerValue]];
+    [[GameDTO dto] save];
 }
 
--(void)updateMoney {
-    [moneyLabel setString:[NSString stringWithFormat:@"%05d", money]];
+-(void)updateGameState {
+    [moneyLabel setString:[NSString stringWithFormat:@"%05d", [GameDTO dto].money.integerValue]];
+    [turnsLabel setString:[NSString stringWithFormat:@"%05d", [GameDTO dto].turnLimit.integerValue]];
 }
-
 
 -(void)addMoney:(CGPoint) position :(int) count {
-    
-    money += count;
+    [GameDTO dto].money = @([GameDTO dto].money.integerValue + count);
 
     CCSprite * moneySpr = [CCSprite spriteWithFile:@"mf0038.png"];
     [self addChild:moneySpr];
@@ -331,7 +334,7 @@ Game * __sg = nil;
 
     id cleanFlash = ^{
         [moneySpr removeFromParentAndCleanup:YES];
-        [self updateMoney];
+        [self updateGameState];
     };
     id cleanFlashAction = [CCCallBlock actionWithBlock:cleanFlash];
 

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		50C4AF7616E0AE740031F9C4 /* GameDTO.m in Sources */ = {isa = PBXBuildFile; fileRef = 50C4AF7516E0AE740031F9C4 /* GameDTO.m */; };
 		DD3173F1169C5D3700B8378F /* MainMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = DD3173F0169C5D3700B8378F /* MainMenu.m */; };
 		DD3173FE169C5E6800B8378F /* logo-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = DD3173F4169C5E6800B8378F /* logo-ipad.png */; };
 		DD3173FF169C5E6800B8378F /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = DD3173F5169C5E6800B8378F /* logo.png */; };
@@ -189,6 +190,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		50C4AF7416E0AE730031F9C4 /* GameDTO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameDTO.h; sourceTree = "<group>"; };
+		50C4AF7516E0AE740031F9C4 /* GameDTO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameDTO.m; sourceTree = "<group>"; };
 		DD3173EF169C5D3700B8378F /* MainMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenu.h; sourceTree = "<group>"; };
 		DD3173F0169C5D3700B8378F /* MainMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenu.m; sourceTree = "<group>"; };
 		DD3173F4169C5E6800B8378F /* logo-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-ipad.png"; sourceTree = "<group>"; };
@@ -624,6 +627,8 @@
 				DD43E1E7166F894D0094E9CF /* Shop.m */,
 				DD3173EF169C5D3700B8378F /* MainMenu.h */,
 				DD3173F0169C5D3700B8378F /* MainMenu.m */,
+				50C4AF7416E0AE730031F9C4 /* GameDTO.h */,
+				50C4AF7516E0AE740031F9C4 /* GameDTO.m */,
 				DD65AF4A16413F3000A0DBD1 /* Resources */,
 				DD65AF6416413F3100A0DBD1 /* libs */,
 				DD65B0BD16413F3200A0DBD1 /* Supporting Files */,
@@ -1256,6 +1261,7 @@
 				DDA3C9FA16458C0C00223401 /* FieldObject.m in Sources */,
 				DD43E1E8166F894D0094E9CF /* Shop.m in Sources */,
 				DD3173F1169C5D3700B8378F /* MainMenu.m in Sources */,
+				50C4AF7616E0AE740031F9C4 /* GameDTO.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

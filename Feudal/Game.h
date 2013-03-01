@@ -13,7 +13,6 @@
 #import "Field.h"
 
 
-
 @interface Game : CCLayer// <GKAchievementViewControllerDelegate, GKLeaderboardViewControllerDelegate>
 {
     NSMutableArray * next;
@@ -29,9 +28,6 @@
     CCLabelTTF * moneyLabel;
     CCLabelTTF * turnsLabel;
     
-    int money;
-    int turn;
-    
     BOOL isShopMode;
     
 }
@@ -46,15 +42,9 @@
 -(void)doTurn;
 
 -(void)addMoney:(CGPoint) position :(int) count;
--(void)updateMoney;
 
 -(void)purchaseItem:(FieldObject *) obj;
 
 -(void)closeShop;
-
-
-
-
-
 
 @end
