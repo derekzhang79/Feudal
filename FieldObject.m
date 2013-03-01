@@ -105,6 +105,10 @@
         lvl = 0;
     }
     
+    if (rand() % 100 < 30) {
+        fot = FO_SPECIAL;
+        lvl = 0;
+    }
     
     FieldObject * obj = [[FieldObject alloc] initWithType:fot :lvl];
     

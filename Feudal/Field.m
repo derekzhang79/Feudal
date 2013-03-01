@@ -238,7 +238,14 @@ static int offsets[4][2] = {{-1, 0}, {0, -1}, {1, 0}, {0, 1}};
 }
 
 -(void)drop:(FieldObject *) fo X:(int) x Y:(int)y {
-
+    if (fo.objectType == FO_SPECIAL && fo.level == 0) {
+        FieldObject *objectToDrop = [self objectAtX:x Y:y];
+        [objectToDrop.view removeFromParentAndCleanup:YES];
+        [fo.view removeFromParentAndCleanup:YES];
+        map[x + y * 6] = nil;
+        return;
+    }
+    
     [self put:fo y:y x:x :YES];
     
     if (fo.objectType == FO_CREATURE && fo.level == 0) {
@@ -256,15 +263,23 @@ static int offsets[4][2] = {{-1, 0}, {0, -1}, {1, 0}, {0, 1}};
     int x = pt.x / cellSZ;
     int y = pt.y / cellSZ;
 
-    
-    if ([self objectAtX:x Y:y] == nil) {
-        [self drop:obj X:x Y:y];
-                
-        return true;
-    } else  {
-        return false;
+    if (obj.objectType == FO_SPECIAL) {
+        if ([self objectAtX:x Y:y] == nil) {
+            return false;
+        }
+        else {
+            [self drop:obj X:x Y:y];
+            return true;
+        }
+    } else {
+        if ([self objectAtX:x Y:y] == nil) {
+            [self drop:obj X:x Y:y];
+                    
+            return true;
+        } else  {
+            return false;
+        }
     }
-
 }
 
 -(CGPoint)truncate:(CGPoint) pt {
