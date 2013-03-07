@@ -187,6 +187,36 @@
 		DDA3C9F41642BB1200223401 /* Field.m in Sources */ = {isa = PBXBuildFile; fileRef = DDA3C9F31642BB1200223401 /* Field.m */; };
 		DDA3C9F71642BB7700223401 /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = DDA3C9F61642BB7700223401 /* Game.m */; };
 		DDA3C9FA16458C0C00223401 /* FieldObject.m in Sources */ = {isa = PBXBuildFile; fileRef = DDA3C9F916458C0C00223401 /* FieldObject.m */; };
+		DDBC0E3316E4ED9A00E83674 /* fireball_fx.png in Resources */ = {isa = PBXBuildFile; fileRef = DDBC0E3216E4ED9A00E83674 /* fireball_fx.png */; };
+		DDBC0E5616E62A8D00E83674 /* dragon0097.png in Resources */ = {isa = PBXBuildFile; fileRef = DDBC0E3916E62A8D00E83674 /* dragon0097.png */; };
+		DDBC0E5716E62A8D00E83674 /* dragon0095.png in Resources */ = {isa = PBXBuildFile; fileRef = DDBC0E3A16E62A8D00E83674 /* dragon0095.png */; };
+		DDBC0E5816E62A8D00E83674 /* dragon0088.png in Resources */ = {isa = PBXBuildFile; fileRef = DDBC0E3B16E62A8D00E83674 /* dragon0088.png */; };
+		DDBC0E5916E62A8D00E83674 /* dragon0091.png in Resources */ = {isa = PBXBuildFile; fileRef = DDBC0E3C16E62A8D00E83674 /* dragon0091.png */; };
+		DDBC0E5A16E62A8D00E83674 /* dragon0084.png in Resources */ = {isa = PBXBuildFile; fileRef = DDBC0E3D16E62A8D00E83674 /* dragon0084.png */; };
+		DDBC0E5B16E62A8D00E83674 /* dragon0080.png in Resources */ = {isa = PBXBuildFile; fileRef = DDBC0E3E16E62A8D00E83674 /* dragon0080.png */; };
+		DDBC0E5C16E62A8D00E83674 /* dragon0073.png in Resources */ = {isa = PBXBuildFile; fileRef = DDBC0E3F16E62A8D00E83674 /* dragon0073.png */; };
+		DDBC0E5D16E62A8D00E83674 /* dragon0077.png in Resources */ = {isa = PBXBuildFile; fileRef = DDBC0E4016E62A8D00E83674 /* dragon0077.png */; };
+		DDBC0E5E16E62A8D00E83674 /* dragon0067.png in Resources */ = {isa = PBXBuildFile; fileRef = DDBC0E4116E62A8D00E83674 /* dragon0067.png */; };
+		DDBC0E5F16E62A8D00E83674 /* dragon0071.png in Resources */ = {isa = PBXBuildFile; fileRef = DDBC0E4216E62A8D00E83674 /* dragon0071.png */; };
+		DDBC0E6016E62A8D00E83674 /* dragon0064.png in Resources */ = {isa = PBXBuildFile; fileRef = DDBC0E4316E62A8D00E83674 /* dragon0064.png */; };
+		DDBC0E6116E62A8D00E83674 /* dragon0060.png in Resources */ = {isa = PBXBuildFile; fileRef = DDBC0E4416E62A8D00E83674 /* dragon0060.png */; };
+		DDBC0E6216E62A8D00E83674 /* dragon0056.png in Resources */ = {isa = PBXBuildFile; fileRef = DDBC0E4516E62A8D00E83674 /* dragon0056.png */; };
+		DDBC0E6316E62A8D00E83674 /* dragon0047.png in Resources */ = {isa = PBXBuildFile; fileRef = DDBC0E4616E62A8D00E83674 /* dragon0047.png */; };
+		DDBC0E6416E62A8D00E83674 /* dragon0049.png in Resources */ = {isa = PBXBuildFile; fileRef = DDBC0E4716E62A8D00E83674 /* dragon0049.png */; };
+		DDBC0E6516E62A8D00E83674 /* dragon0052.png in Resources */ = {isa = PBXBuildFile; fileRef = DDBC0E4816E62A8D00E83674 /* dragon0052.png */; };
+		DDBC0E6616E62A8D00E83674 /* dragon0043.png in Resources */ = {isa = PBXBuildFile; fileRef = DDBC0E4916E62A8D00E83674 /* dragon0043.png */; };
+		DDBC0E6716E62A8D00E83674 /* dragon0036.png in Resources */ = {isa = PBXBuildFile; fileRef = DDBC0E4A16E62A8D00E83674 /* dragon0036.png */; };
+		DDBC0E6816E62A8D00E83674 /* dragon0039.png in Resources */ = {isa = PBXBuildFile; fileRef = DDBC0E4B16E62A8D00E83674 /* dragon0039.png */; };
+		DDBC0E6916E62A8D00E83674 /* dragon0032.png in Resources */ = {isa = PBXBuildFile; fileRef = DDBC0E4C16E62A8D00E83674 /* dragon0032.png */; };
+		DDBC0E6A16E62A8D00E83674 /* dragon0025.png in Resources */ = {isa = PBXBuildFile; fileRef = DDBC0E4D16E62A8D00E83674 /* dragon0025.png */; };
+		DDBC0E6B16E62A8D00E83674 /* dragon0028.png in Resources */ = {isa = PBXBuildFile; fileRef = DDBC0E4E16E62A8D00E83674 /* dragon0028.png */; };
+		DDBC0E6C16E62A8D00E83674 /* dragon0023.png in Resources */ = {isa = PBXBuildFile; fileRef = DDBC0E4F16E62A8D00E83674 /* dragon0023.png */; };
+		DDBC0E6D16E62A8D00E83674 /* dragon0015.png in Resources */ = {isa = PBXBuildFile; fileRef = DDBC0E5016E62A8D00E83674 /* dragon0015.png */; };
+		DDBC0E6E16E62A8D00E83674 /* dragon0019.png in Resources */ = {isa = PBXBuildFile; fileRef = DDBC0E5116E62A8D00E83674 /* dragon0019.png */; };
+		DDBC0E6F16E62A8D00E83674 /* dragon0012.png in Resources */ = {isa = PBXBuildFile; fileRef = DDBC0E5216E62A8D00E83674 /* dragon0012.png */; };
+		DDBC0E7016E62A8D00E83674 /* dragon0008.png in Resources */ = {isa = PBXBuildFile; fileRef = DDBC0E5316E62A8D00E83674 /* dragon0008.png */; };
+		DDBC0E7116E62A8D00E83674 /* dragon0004.png in Resources */ = {isa = PBXBuildFile; fileRef = DDBC0E5416E62A8D00E83674 /* dragon0004.png */; };
+		DDBC0E7216E62A8D00E83674 /* dragon0000.png in Resources */ = {isa = PBXBuildFile; fileRef = DDBC0E5516E62A8D00E83674 /* dragon0000.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -512,6 +542,36 @@
 		DDA3C9F61642BB7700223401 /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Game.m; sourceTree = "<group>"; };
 		DDA3C9F816458C0C00223401 /* FieldObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FieldObject.h; path = ../FieldObject.h; sourceTree = "<group>"; };
 		DDA3C9F916458C0C00223401 /* FieldObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FieldObject.m; path = ../FieldObject.m; sourceTree = "<group>"; };
+		DDBC0E3216E4ED9A00E83674 /* fireball_fx.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = fireball_fx.png; path = Resources/fireball_fx.png; sourceTree = "<group>"; };
+		DDBC0E3916E62A8D00E83674 /* dragon0097.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dragon0097.png; path = Resources/dragon/dragon0097.png; sourceTree = "<group>"; };
+		DDBC0E3A16E62A8D00E83674 /* dragon0095.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dragon0095.png; path = Resources/dragon/dragon0095.png; sourceTree = "<group>"; };
+		DDBC0E3B16E62A8D00E83674 /* dragon0088.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dragon0088.png; path = Resources/dragon/dragon0088.png; sourceTree = "<group>"; };
+		DDBC0E3C16E62A8D00E83674 /* dragon0091.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dragon0091.png; path = Resources/dragon/dragon0091.png; sourceTree = "<group>"; };
+		DDBC0E3D16E62A8D00E83674 /* dragon0084.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dragon0084.png; path = Resources/dragon/dragon0084.png; sourceTree = "<group>"; };
+		DDBC0E3E16E62A8D00E83674 /* dragon0080.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dragon0080.png; path = Resources/dragon/dragon0080.png; sourceTree = "<group>"; };
+		DDBC0E3F16E62A8D00E83674 /* dragon0073.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dragon0073.png; path = Resources/dragon/dragon0073.png; sourceTree = "<group>"; };
+		DDBC0E4016E62A8D00E83674 /* dragon0077.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dragon0077.png; path = Resources/dragon/dragon0077.png; sourceTree = "<group>"; };
+		DDBC0E4116E62A8D00E83674 /* dragon0067.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dragon0067.png; path = Resources/dragon/dragon0067.png; sourceTree = "<group>"; };
+		DDBC0E4216E62A8D00E83674 /* dragon0071.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dragon0071.png; path = Resources/dragon/dragon0071.png; sourceTree = "<group>"; };
+		DDBC0E4316E62A8D00E83674 /* dragon0064.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dragon0064.png; path = Resources/dragon/dragon0064.png; sourceTree = "<group>"; };
+		DDBC0E4416E62A8D00E83674 /* dragon0060.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dragon0060.png; path = Resources/dragon/dragon0060.png; sourceTree = "<group>"; };
+		DDBC0E4516E62A8D00E83674 /* dragon0056.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dragon0056.png; path = Resources/dragon/dragon0056.png; sourceTree = "<group>"; };
+		DDBC0E4616E62A8D00E83674 /* dragon0047.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dragon0047.png; path = Resources/dragon/dragon0047.png; sourceTree = "<group>"; };
+		DDBC0E4716E62A8D00E83674 /* dragon0049.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dragon0049.png; path = Resources/dragon/dragon0049.png; sourceTree = "<group>"; };
+		DDBC0E4816E62A8D00E83674 /* dragon0052.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dragon0052.png; path = Resources/dragon/dragon0052.png; sourceTree = "<group>"; };
+		DDBC0E4916E62A8D00E83674 /* dragon0043.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dragon0043.png; path = Resources/dragon/dragon0043.png; sourceTree = "<group>"; };
+		DDBC0E4A16E62A8D00E83674 /* dragon0036.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dragon0036.png; path = Resources/dragon/dragon0036.png; sourceTree = "<group>"; };
+		DDBC0E4B16E62A8D00E83674 /* dragon0039.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dragon0039.png; path = Resources/dragon/dragon0039.png; sourceTree = "<group>"; };
+		DDBC0E4C16E62A8D00E83674 /* dragon0032.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dragon0032.png; path = Resources/dragon/dragon0032.png; sourceTree = "<group>"; };
+		DDBC0E4D16E62A8D00E83674 /* dragon0025.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dragon0025.png; path = Resources/dragon/dragon0025.png; sourceTree = "<group>"; };
+		DDBC0E4E16E62A8D00E83674 /* dragon0028.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dragon0028.png; path = Resources/dragon/dragon0028.png; sourceTree = "<group>"; };
+		DDBC0E4F16E62A8D00E83674 /* dragon0023.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dragon0023.png; path = Resources/dragon/dragon0023.png; sourceTree = "<group>"; };
+		DDBC0E5016E62A8D00E83674 /* dragon0015.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dragon0015.png; path = Resources/dragon/dragon0015.png; sourceTree = "<group>"; };
+		DDBC0E5116E62A8D00E83674 /* dragon0019.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dragon0019.png; path = Resources/dragon/dragon0019.png; sourceTree = "<group>"; };
+		DDBC0E5216E62A8D00E83674 /* dragon0012.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dragon0012.png; path = Resources/dragon/dragon0012.png; sourceTree = "<group>"; };
+		DDBC0E5316E62A8D00E83674 /* dragon0008.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dragon0008.png; path = Resources/dragon/dragon0008.png; sourceTree = "<group>"; };
+		DDBC0E5416E62A8D00E83674 /* dragon0004.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dragon0004.png; path = Resources/dragon/dragon0004.png; sourceTree = "<group>"; };
+		DDBC0E5516E62A8D00E83674 /* dragon0000.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dragon0000.png; path = Resources/dragon/dragon0000.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -639,6 +699,8 @@
 		DD65AF4A16413F3000A0DBD1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				DDBC0E3816E62A6F00E83674 /* dragon */,
+				DDBC0E3216E4ED9A00E83674 /* fireball_fx.png */,
 				DD3173F3169C5DC500B8378F /* menu */,
 				DD43E1F4168208220094E9CF /* ok.png */,
 				DD43E1E9166F8E4F0094E9CF /* fon_shop.png */,
@@ -1031,6 +1093,42 @@
 			path = Resources/Field;
 			sourceTree = "<group>";
 		};
+		DDBC0E3816E62A6F00E83674 /* dragon */ = {
+			isa = PBXGroup;
+			children = (
+				DDBC0E3916E62A8D00E83674 /* dragon0097.png */,
+				DDBC0E3A16E62A8D00E83674 /* dragon0095.png */,
+				DDBC0E3B16E62A8D00E83674 /* dragon0088.png */,
+				DDBC0E3C16E62A8D00E83674 /* dragon0091.png */,
+				DDBC0E3D16E62A8D00E83674 /* dragon0084.png */,
+				DDBC0E3E16E62A8D00E83674 /* dragon0080.png */,
+				DDBC0E3F16E62A8D00E83674 /* dragon0073.png */,
+				DDBC0E4016E62A8D00E83674 /* dragon0077.png */,
+				DDBC0E4116E62A8D00E83674 /* dragon0067.png */,
+				DDBC0E4216E62A8D00E83674 /* dragon0071.png */,
+				DDBC0E4316E62A8D00E83674 /* dragon0064.png */,
+				DDBC0E4416E62A8D00E83674 /* dragon0060.png */,
+				DDBC0E4516E62A8D00E83674 /* dragon0056.png */,
+				DDBC0E4616E62A8D00E83674 /* dragon0047.png */,
+				DDBC0E4716E62A8D00E83674 /* dragon0049.png */,
+				DDBC0E4816E62A8D00E83674 /* dragon0052.png */,
+				DDBC0E4916E62A8D00E83674 /* dragon0043.png */,
+				DDBC0E4A16E62A8D00E83674 /* dragon0036.png */,
+				DDBC0E4B16E62A8D00E83674 /* dragon0039.png */,
+				DDBC0E4C16E62A8D00E83674 /* dragon0032.png */,
+				DDBC0E4D16E62A8D00E83674 /* dragon0025.png */,
+				DDBC0E4E16E62A8D00E83674 /* dragon0028.png */,
+				DDBC0E4F16E62A8D00E83674 /* dragon0023.png */,
+				DDBC0E5016E62A8D00E83674 /* dragon0015.png */,
+				DDBC0E5116E62A8D00E83674 /* dragon0019.png */,
+				DDBC0E5216E62A8D00E83674 /* dragon0012.png */,
+				DDBC0E5316E62A8D00E83674 /* dragon0008.png */,
+				DDBC0E5416E62A8D00E83674 /* dragon0004.png */,
+				DDBC0E5516E62A8D00E83674 /* dragon0000.png */,
+			);
+			name = dragon;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1142,6 +1240,36 @@
 				DD317405169C5E6800B8378F /* splash.jpg in Resources */,
 				DD317406169C5E6800B8378F /* start.png in Resources */,
 				DD317407169C5E6800B8378F /* startOn.png in Resources */,
+				DDBC0E3316E4ED9A00E83674 /* fireball_fx.png in Resources */,
+				DDBC0E5616E62A8D00E83674 /* dragon0097.png in Resources */,
+				DDBC0E5716E62A8D00E83674 /* dragon0095.png in Resources */,
+				DDBC0E5816E62A8D00E83674 /* dragon0088.png in Resources */,
+				DDBC0E5916E62A8D00E83674 /* dragon0091.png in Resources */,
+				DDBC0E5A16E62A8D00E83674 /* dragon0084.png in Resources */,
+				DDBC0E5B16E62A8D00E83674 /* dragon0080.png in Resources */,
+				DDBC0E5C16E62A8D00E83674 /* dragon0073.png in Resources */,
+				DDBC0E5D16E62A8D00E83674 /* dragon0077.png in Resources */,
+				DDBC0E5E16E62A8D00E83674 /* dragon0067.png in Resources */,
+				DDBC0E5F16E62A8D00E83674 /* dragon0071.png in Resources */,
+				DDBC0E6016E62A8D00E83674 /* dragon0064.png in Resources */,
+				DDBC0E6116E62A8D00E83674 /* dragon0060.png in Resources */,
+				DDBC0E6216E62A8D00E83674 /* dragon0056.png in Resources */,
+				DDBC0E6316E62A8D00E83674 /* dragon0047.png in Resources */,
+				DDBC0E6416E62A8D00E83674 /* dragon0049.png in Resources */,
+				DDBC0E6516E62A8D00E83674 /* dragon0052.png in Resources */,
+				DDBC0E6616E62A8D00E83674 /* dragon0043.png in Resources */,
+				DDBC0E6716E62A8D00E83674 /* dragon0036.png in Resources */,
+				DDBC0E6816E62A8D00E83674 /* dragon0039.png in Resources */,
+				DDBC0E6916E62A8D00E83674 /* dragon0032.png in Resources */,
+				DDBC0E6A16E62A8D00E83674 /* dragon0025.png in Resources */,
+				DDBC0E6B16E62A8D00E83674 /* dragon0028.png in Resources */,
+				DDBC0E6C16E62A8D00E83674 /* dragon0023.png in Resources */,
+				DDBC0E6D16E62A8D00E83674 /* dragon0015.png in Resources */,
+				DDBC0E6E16E62A8D00E83674 /* dragon0019.png in Resources */,
+				DDBC0E6F16E62A8D00E83674 /* dragon0012.png in Resources */,
+				DDBC0E7016E62A8D00E83674 /* dragon0008.png in Resources */,
+				DDBC0E7116E62A8D00E83674 /* dragon0004.png in Resources */,
+				DDBC0E7216E62A8D00E83674 /* dragon0000.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

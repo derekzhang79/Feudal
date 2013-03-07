@@ -40,7 +40,31 @@ static int offsets[4][2] = {{-1, 0}, {0, -1}, {1, 0}, {0, 1}};
         
 //        NSMutableArray * frames = [NSMutableArray arrayWithCapacity:10];
         
+        
+        dragon = [CCAnimation animationWithSpriteFrames:nil delay:0.05f];
+        [dragon addSpriteFrameWithFilename:@"dragon0000.png"];
+        [dragon addSpriteFrameWithFilename:@"dragon0004.png"];
+        [dragon addSpriteFrameWithFilename:@"dragon0008.png"];
+        [dragon addSpriteFrameWithFilename:@"dragon0012.png"];
+        [dragon addSpriteFrameWithFilename:@"dragon0015.png"];
+        [dragon addSpriteFrameWithFilename:@"dragon0019.png"];
+        
+        dragonAnimation = [[CCAnimate actionWithAnimation: dragon] retain];
 
+        
+        dragonBreath = [CCAnimation animationWithSpriteFrames:nil delay:0.05f];
+        [dragonBreath addSpriteFrameWithFilename:@"dragon0028.png"];
+        [dragonBreath addSpriteFrameWithFilename:@"dragon0032.png"];
+        [dragonBreath addSpriteFrameWithFilename:@"dragon0036.png"];
+        [dragonBreath addSpriteFrameWithFilename:@"dragon0039.png"];
+        [dragonBreath addSpriteFrameWithFilename:@"dragon0043.png"];
+        [dragonBreath addSpriteFrameWithFilename:@"dragon0047.png"];
+        [dragonBreath addSpriteFrameWithFilename:@"dragon0049.png"];
+        [dragonBreath addSpriteFrameWithFilename:@"dragon0052.png"];
+        [dragonBreath addSpriteFrameWithFilename:@"dragon0056.png"];
+        dragonBreathAnimation = [[CCAnimate actionWithAnimation: dragonBreath] retain];
+        
+        
         
         flash = [CCAnimation animationWithSpriteFrames:nil delay:0.05f];
 //        flash.loops = 1;
@@ -238,11 +262,12 @@ static int offsets[4][2] = {{-1, 0}, {0, -1}, {1, 0}, {0, 1}};
 }
 
 -(void)drop:(FieldObject *) fo X:(int) x Y:(int)y {
+
     if (fo.objectType == FO_SPECIAL && fo.level == 0) {
-        FieldObject *objectToDrop = [self objectAtX:x Y:y];
-        [objectToDrop.view removeFromParentAndCleanup:YES];
-        [fo.view removeFromParentAndCleanup:YES];
-        map[x + y * 6] = nil;
+        
+        [self dragonFly:fo :x :y];
+
+        
         return;
     }
     
@@ -258,8 +283,76 @@ static int offsets[4][2] = {{-1, 0}, {0, -1}, {1, 0}, {0, 1}};
     }
 }
 
+ 
+-(void)dragonFly: (FieldObject *) fo :(int) x :(int) y {
+    
+    
+    CCSprite * dragonSpr = [CCSprite spriteWithFile:@"dragon0000.png"];
+    [self addChild:dragonSpr];
+    
+    dragonSpr.position = ccp(-100, -100);
+    CGPoint target = [self posToCoords: x :y];
+    
+    float angle = ccpToAngle(ccpSub(target, dragonSpr.position));    
+    float flyTime = ccpDistance(target, dragonSpr.position) / 300.0f;
+    dragonSpr.rotation = 90 - CC_RADIANS_TO_DEGREES(angle);
 
--(BOOL)tryToDrop:(FieldObject *) obj:(CGPoint) pt {
+    [dragonSpr runAction:[CCRepeatForever actionWithAction:dragonAnimation]];
+    
+
+    id cleanFlash = ^{
+        [dragonSpr removeFromParentAndCleanup:YES];
+        
+        
+        FieldObject *objectToDrop = [self objectAtX:x Y:y];
+        [objectToDrop.view removeFromParentAndCleanup:YES];
+        [fo.view removeFromParentAndCleanup:YES];
+        map[x + y * 6] = nil;
+        
+        NSMutableArray *frames = [NSMutableArray array];
+        
+        for (int i = 0; i < 16; i++) {
+            
+            int tx = (i % 4) * 128;
+            int ty = (i / 4) * 128;
+            
+            
+            CCSpriteFrame * frame = [[CCSpriteFrame alloc] initWithTextureFilename:@"fireball_fx.png" rectInPixels:CGRectMake(tx, ty, 128, 128) rotated:NO offset:ccp(0, 0) originalSize:CGSizeMake(128, 128)];
+            
+            [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFrame:frame name:[NSString stringWithFormat:@"fireball_%d", i]];
+            [frames addObject:frame];
+        }
+        
+        
+        CCSprite * sprite = [CCSprite spriteWithSpriteFrameName:@"fireball_1"];
+        [self addChild:sprite];
+        [sprite setPosition:[self posToCoords: x :y]];
+        
+        
+        CCAnimation *fireball = [CCAnimation animationWithSpriteFrames:frames delay:0.05f];
+        CCAnimate *fireballAnimate = [CCAnimate actionWithAnimation:fireball];
+        [sprite runAction:[CCSequence actions:fireballAnimate, fireballAnimate, nil]];
+        
+        
+        
+        
+    };
+    id cleanFlashAction = [CCCallBlock actionWithBlock:cleanFlash];
+    
+    //id cleanFlashAction = [CCCallBlock actionWithBlock:cleanFlash];
+    
+    
+    id moveToAction = [CCMoveTo actionWithDuration:flyTime position:[self posToCoords: x :y]];
+    
+    
+
+    [dragonSpr runAction:[CCSequence actions:moveToAction, cleanFlashAction, nil]];
+    
+    
+    
+}
+
+-(BOOL)tryToDrop:(FieldObject *) obj :(CGPoint) pt {
     int x = pt.x / cellSZ;
     int y = pt.y / cellSZ;
 

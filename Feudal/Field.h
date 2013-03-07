@@ -18,12 +18,19 @@
     
     CCAnimation * flash;
     CCAnimate * flashAnimation;
+    
+    CCAnimation * dragon;
+    CCAnimate * dragonAnimation;
+    
+    CCAnimation * dragonBreath;
+    CCAnimate * dragonBreathAnimation;
+    
 }
 
 -(FieldObject *)objectAtX:(int)x Y:(int)y;
 -(void)drop:(FieldObject *) fo X:(int) x Y:(int)y;
 
--(BOOL)tryToDrop:(FieldObject *) obj:(CGPoint) pt;
+-(BOOL)tryToDrop:(FieldObject *) obj :(CGPoint) pt;
 
 -(CGPoint)truncate:(CGPoint) pt;
 -(CGPoint)posToCoords:(int) x :(int)y;

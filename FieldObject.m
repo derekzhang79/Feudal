@@ -86,30 +86,37 @@
 
 +(FieldObject *)getRandom {
     
+    NSArray * table = @[
+                        @[@(FO_FOOD),       @0, @60],
+                        @[@(FO_FOOD),       @1, @10],
+                        @[@(FO_FOOD),       @2, @3],
+                        @[@(FO_CREATURE),   @0, @25],
+                        @[@(FO_SPECIAL),    @0, @100]
+                         ];
     
-    int r = rand() % 100;
-    int lvl = 0;
     
-    if (r > 95) {
-        lvl = 2;
-    } else if (r > 80) {
-        lvl = 1;
-    } else {
-        lvl = 0;
+    int sum = 0;
+    
+    
+    for (int i = 0; i < table.count; i++) {
+        sum += [table[i][2] integerValue];
     }
     
+    int r = rand() % sum;
+    
+
+    int lvl = 0;
     FIELD_OBJECT_TYPE fot = FO_FOOD;
     
-    if (rand() % 100 < 10) {
-        fot = FO_CREATURE;
-        lvl = 0;
+    for (int i = 0; i < table.count; i++) {
+        r -= [table[i][2] integerValue];
+        if (r <= 0) {
+            lvl = [table[i][1] integerValue];
+            fot = [table[i][0] integerValue];
+            break;
+        }
     }
-    
-    if (rand() % 100 < 30) {
-        fot = FO_SPECIAL;
-        lvl = 0;
-    }
-    
+        
     FieldObject * obj = [[FieldObject alloc] initWithType:fot :lvl];
     
     return obj;

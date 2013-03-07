@@ -64,6 +64,13 @@
         [self addChild:menu];
         
         menu.position = [background convertToWorldSpace:ccp(size.width / 2 + sc(190), size.height / 2 - sc(444))];
+        
+
+
+
+
+            
+        
 	}
 	return self;
 }
