@@ -285,6 +285,10 @@ static int offsets[4][2] = {{-1, 0}, {0, -1}, {1, 0}, {0, 1}};
 
  
 -(void)dragonFly: (FieldObject *) fo :(int) x :(int) y {
+
+    FieldObject * objectToRemove = map[x + y * 6];
+    
+    map[x + y * 6] = nil;
     
     
     CCSprite * dragonSpr = [CCSprite spriteWithFile:@"dragon0000.png"];
@@ -301,13 +305,12 @@ static int offsets[4][2] = {{-1, 0}, {0, -1}, {1, 0}, {0, 1}};
     
 
     id cleanFlash = ^{
-        [dragonSpr removeFromParentAndCleanup:YES];
         
         
         FieldObject *objectToDrop = [self objectAtX:x Y:y];
         [objectToDrop.view removeFromParentAndCleanup:YES];
         [fo.view removeFromParentAndCleanup:YES];
-        map[x + y * 6] = nil;
+
         
         NSMutableArray *frames = [NSMutableArray array];
         
@@ -328,24 +331,35 @@ static int offsets[4][2] = {{-1, 0}, {0, -1}, {1, 0}, {0, 1}};
         [self addChild:sprite];
         [sprite setPosition:[self posToCoords: x :y]];
         
+
+        
+        
+        CGPoint target = ccp(-100, [[CCDirector sharedDirector] winSize].height + 100);
+        float angle2 = ccpToAngle(ccpSub(dragonSpr.position, target));
+        float flyTime2 = ccpDistance(target, dragonSpr.position) / 300.0f;
+        dragonSpr.rotation = 90 - CC_RADIANS_TO_DEGREES(angle2);
+        
         
         CCAnimation *fireball = [CCAnimation animationWithSpriteFrames:frames delay:0.05f];
         CCAnimate *fireballAnimate = [CCAnimate actionWithAnimation:fireball];
-        [sprite runAction:[CCSequence actions:fireballAnimate, fireballAnimate, nil]];
+        id repeatFire = [CCRepeat actionWithAction:fireballAnimate times:(int)flyTime2 + 1];
         
+        id cleanFireBlock = ^{
+            [sprite removeFromParentAndCleanup:YES];
+            [objectToRemove.view removeFromParentAndCleanup:YES];
+        };
         
+        id cleanFireAction = [CCCallBlock actionWithBlock:cleanFireBlock];
+        [sprite runAction:[CCSequence actions:repeatFire, cleanFireAction, nil]];
+
         
+        id cleanDragonBlock = ^{ [dragonSpr removeFromParentAndCleanup:YES]; };
+        id cleanDragonAction = [CCCallBlock actionWithBlock:cleanDragonBlock];
         
+        [dragonSpr runAction:[CCSequence actions:[CCMoveTo actionWithDuration:flyTime2 position:target], cleanDragonAction, nil]];
     };
     id cleanFlashAction = [CCCallBlock actionWithBlock:cleanFlash];
-    
-    //id cleanFlashAction = [CCCallBlock actionWithBlock:cleanFlash];
-    
-    
     id moveToAction = [CCMoveTo actionWithDuration:flyTime position:[self posToCoords: x :y]];
-    
-    
-
     [dragonSpr runAction:[CCSequence actions:moveToAction, cleanFlashAction, nil]];
     
     
