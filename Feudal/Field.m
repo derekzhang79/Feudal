@@ -166,6 +166,14 @@ static int offsets[4][2] = {{-1, 0}, {0, -1}, {1, 0}, {0, 1}};
 }
 
 
+
+-(void)mutateGem:(int) x :(int)y {
+    FieldObject * gem = [self objectAtX:x Y:y];
+    [self canEvaluateGem:x :y];
+    gem.objectType = gemEvaluateType;
+    gem.level = gemEvaluateLevel;
+}
+
 -(BOOL)mutateRobers:(int) x :(int)y {
 
     FieldObject * rober = [self objectAtX:x Y:y];
@@ -266,14 +274,16 @@ static int offsets[4][2] = {{-1, 0}, {0, -1}, {1, 0}, {0, 1}};
     if (fo.objectType == FO_SPECIAL && fo.level == 0) {
         
         [self dragonFly:fo :x :y];
-
-        
         return;
     }
     
-    [self put:fo y:y x:x :YES];
     
-    if (fo.objectType == FO_CREATURE && fo.level == 0) {
+    [self put:fo y:y x:x :YES];
+
+    if (fo.objectType == FO_SPECIAL && fo.level == 1) {
+        [self mutateGem:x :y];
+        [self apply3Rules:x :y :0.0f];
+    } else if (fo.objectType == FO_CREATURE && fo.level == 0) {
         
         if ([self mutateRobers:x :y]) {
             [self apply3Rules:x :y :0.4f];
@@ -371,13 +381,14 @@ static int offsets[4][2] = {{-1, 0}, {0, -1}, {1, 0}, {0, 1}};
     int y = pt.y / cellSZ;
 
     if (obj.objectType == FO_SPECIAL) {
-        if ([self objectAtX:x Y:y] == nil) {
-            return false;
-        }
-        else {
+        if (obj.level == 1 && [self canEvaluateGem:x :y]) {
+            [self drop:obj X:x Y:y];
+            return true;
+        } else if (obj.level == 0 && [self objectAtX:x Y:y] != nil) {
             [self drop:obj X:x Y:y];
             return true;
         }
+        return false;
     } else {
         if ([self objectAtX:x Y:y] == nil) {
             [self drop:obj X:x Y:y];
@@ -388,6 +399,36 @@ static int offsets[4][2] = {{-1, 0}, {0, -1}, {1, 0}, {0, 1}};
         }
     }
 }
+
+-(BOOL)canEvaluateGem:(int) x :(int) y {
+    if ([self objectAtX:x Y:y] != nil)
+        return false;
+    
+    FieldObject * fakeObject = [[FieldObject alloc] initWithType:FO_FOOD :0];
+    map[x + y * 6] = fakeObject;
+    fakeObject.x = x;
+    fakeObject.y = y;
+    
+    for (int j = 5; j >= 0; j--) {
+        for (int i = 2; i >= 1; i--) {
+            if (i == FO_CREATURE && j == 0) {
+                continue;
+            }
+            fakeObject.objectType = i;
+            fakeObject.level = j;
+            if ([self findConnectedObjects:x :y].count >= 3) {
+                map[x + y * 6] = nil;
+                gemEvaluateLevel = j;
+                gemEvaluateType = i;
+                return true;
+            }
+        }
+    }
+
+    map[x + y * 6] = nil;    
+    return false;
+}
+
 
 -(CGPoint)truncate:(CGPoint) pt {
     int x = pt.x / cellSZ;

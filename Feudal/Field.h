@@ -25,6 +25,10 @@
     CCAnimation * dragonBreath;
     CCAnimate * dragonBreathAnimation;
     
+    
+    FIELD_OBJECT_TYPE gemEvaluateType;
+    int gemEvaluateLevel;
+    
 }
 
 -(FieldObject *)objectAtX:(int)x Y:(int)y;
