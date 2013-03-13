@@ -9,6 +9,7 @@
 #import "Shop.h"
 #import "FieldObject.h"
 #import "Game.h"
+#import "ccConfig.h"
 
 
 #define sc(x) x / [UIScreen mainScreen].scale

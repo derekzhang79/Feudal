@@ -37,20 +37,36 @@
 
         
         CCSprite * logo = [CCSprite spriteWithFile:@"logo.png"];
-        logo.position = ccp( 3 * size.width / 8 , 3 * size.height / 5 );
+        logo.position = ccp( background.boundingBox.size.width / 4 + 10 , 4 * background.boundingBox.size.height / 5 );;
         [background addChild:logo];
         
-        CCMenuItem * continueItem = [CCMenuItemImage itemWithNormalImage:@"start.png" selectedImage:@"startOn.png" block:^(id sender) {
+        CCMenuItem * continueItem = [CCMenuItemImage itemWithNormalImage:@"empty.png" selectedImage:@"emptyOn.png" block:^(id sender) {
             [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[Game scene] withColor:ccWHITE]];
         }];
+        
+        [self addLableToMenu:@"Continue" :continueItem];
+
+        
 		
-        CCMenuItem * start = [CCMenuItemImage itemWithNormalImage:@"start.png" selectedImage:@"startOn.png" block:^(id sender) {
+        CCMenuItem * start = [CCMenuItemImage itemWithNormalImage:@"empty.png" selectedImage:@"emptyOn.png" block:^(id sender) {
             //  clear the save and start game from scratch
             [GameDTO dto].levels = nil;
             [GameDTO dto].types = nil;
             [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[Game scene] withColor:ccWHITE]];
         
         }];
+        
+        [self addLableToMenu:@"New Game" :start];
+
+        
+        CCMenuItem * options = [CCMenuItemImage itemWithNormalImage:@"empty.png" selectedImage:@"emptyOn.png" block:^(id sender) {
+        }];
+        [self addLableToMenu:@"Options" :options];
+        
+        CCMenuItem * help = [CCMenuItemImage itemWithNormalImage:@"empty.png" selectedImage:@"emptyOn.png" block:^(id sender) {
+        }];
+        [self addLableToMenu:@"Help" :help];
+        
         
 		CCMenu * menu = [CCMenu menuWithItems:nil];
         
@@ -59,21 +75,36 @@
             [menu addChild:continueItem];
         }
         [menu addChild:start];
+        [menu addChild:options];
+        [menu addChild:help];
         
         [menu alignItemsVertically];
         [self addChild:menu];
         
-        menu.position = [background convertToWorldSpace:ccp(size.width / 2 + sc(190), size.height / 2 - sc(444))];
         
-
-
-
-
-            
+        [menu.children objectAtIndex:0];
+        
+        int offsetH = ((CCMenuItem *)([menu.children objectAtIndex:0])).position.y + ((CCMenuItem *)([menu.children objectAtIndex:0])).boundingBox.size.height / 2;
+        menu.position = ccpSub(logo.position, ccp(0, logo.boundingBox.size.height / 2 + offsetH));
         
 	}
 	return self;
 }
 
+
+-(void)addLableToMenu:(NSString *) txt :(CCMenuItem *) item{
+
+    CCLabelTTF * menuLable2 = [CCLabelTTF labelWithString:txt fontName:@"Old London Alternate" fontSize:sc(40)];
+    menuLable2.color = ccc3(80, 40, 0);
+    [item addChild:menuLable2];
+    menuLable2.scale = 1.1f;
+    menuLable2.position = ccp(item.boundingBox.size.width / 2, item.boundingBox.size.height / 2 - 2);
+    
+    CCLabelTTF * menuLable = [CCLabelTTF labelWithString:txt fontName:@"Old London Alternate" fontSize:sc(40)];
+    menuLable.color = ccc3(255, 255, 120);
+    [item addChild:menuLable];
+    menuLable.position = ccp(item.boundingBox.size.width / 2, item.boundingBox.size.height / 2 - 2);
+    
+}
 
 @end
