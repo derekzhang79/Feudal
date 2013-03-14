@@ -57,7 +57,7 @@ Game * __sg = nil;
         
         CGSize nw = background.boundingBox.size;
         
-        nextControlOffset = [background convertToWorldSpace:ccp(60, 40)];
+        nextControlOffset = [background convertToWorldSpace:ccp(FSZ(60), FSZ(40))];
         
         [self generateNext];
         [self updateNext];
@@ -145,9 +145,9 @@ Game * __sg = nil;
 
 -(CGPoint)nextPositionFromIndex:(int)index {
     if (index < 3)
-        return ccp(nextControlOffset.x + index * 73, nextControlOffset.y);
+        return ccp(nextControlOffset.x + index * FSZ(73), nextControlOffset.y);
     else
-        return ccp(nextControlOffset.x + 10 * 73, nextControlOffset.y);
+        return ccp(nextControlOffset.x + 10 * FSZ(73), nextControlOffset.y);
 }
 
 -(void)updateNext {
