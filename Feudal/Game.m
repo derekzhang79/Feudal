@@ -50,11 +50,6 @@ Game * __sg = nil;
         background.position = ccp( size.width /2 , size.height/2 );
         [self addChild:background];
 
-//        CCSprite * frame = [CCSprite spriteWithFile:@"treeframe.png"];
-//        frame.position = ccp( size.width /2 , size.height/2 );
-//        [self addChild:frame];
-        
-        
         field = [[Field alloc] init];
         field.position = ccp( size.width /2 , size.height/2 );
         [self addChild:field];
@@ -62,9 +57,7 @@ Game * __sg = nil;
         
         CGSize nw = background.boundingBox.size;
         
-        nextControlOffset = [background convertToWorldSpace:ccp(nw.width / 4 - sc(66), nw.height / 2 - sc(434))];
-
-        
+        nextControlOffset = [background convertToWorldSpace:ccp(60, 40)];
         
         [self generateNext];
         [self updateNext];
@@ -73,15 +66,15 @@ Game * __sg = nil;
         self.isTouchEnabled = YES;
         
         
-        moneyLabel = [CCLabelTTF labelWithString:@"00000" fontName:@"Old London Alternate" fontSize:sc(48)];
+        moneyLabel = [CCLabelTTF labelWithString:@"00000" fontName:@"Old London Alternate" fontSize:FSZ(24)];
         moneyLabel.color = ccc3(128, 64, 0);
         [self addChild:moneyLabel];
-        moneyLabel.position = [background convertToWorldSpace:ccp(nw.width / 2 - sc(140), nw.height - sc(98))];
+        moneyLabel.position = [background convertToWorldSpace:ccp(nw.width / 2 - 70, nw.height - 49)];
         
-        turnsLabel = [CCLabelTTF labelWithString:@"00000" fontName:@"Old London Alternate" fontSize:sc(48)];
+        turnsLabel = [CCLabelTTF labelWithString:@"00000" fontName:@"Old London Alternate" fontSize:FSZ(24)];
         turnsLabel.color = ccc3(128, 64, 0);
         [self addChild:turnsLabel];
-        turnsLabel.position = [background convertToWorldSpace:ccp(nw.width / 2 + sc(127), nw.height - sc(98))];
+        turnsLabel.position = [background convertToWorldSpace:ccp(nw.width / 2 + 64, nw.height - 49)];
         
         [self updateGameState];
         
@@ -152,9 +145,9 @@ Game * __sg = nil;
 
 -(CGPoint)nextPositionFromIndex:(int)index {
     if (index < 3)
-        return ccp(nextControlOffset.x + index * sc(144), nextControlOffset.y);
+        return ccp(nextControlOffset.x + index * 73, nextControlOffset.y);
     else
-        return ccp(nextControlOffset.x + 10 * sc(144), nextControlOffset.y);
+        return ccp(nextControlOffset.x + 10 * 73, nextControlOffset.y);
 }
 
 -(void)updateNext {
