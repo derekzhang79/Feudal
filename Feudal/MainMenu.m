@@ -12,7 +12,7 @@
 
 @implementation MainMenu
 
-#define FSZ(x) ((UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) + 1) * x
+
 
 +(CCScene *) scene
 {

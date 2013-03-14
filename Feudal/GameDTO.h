@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+#define FSZ(x) ((UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) + 1) * x
+
 #define TURN_LIMIT      500
 
 @interface GameDTO : NSObject

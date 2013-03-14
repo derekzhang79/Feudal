@@ -45,19 +45,14 @@ Game * __sg = nil;
         
 		CGSize size = [[CCDirector sharedDirector] winSize];
 		
-//		CCLabelTTF *label = [CCLabelTTF labelWithString:@"Hello World" fontName:@"Marker Felt" fontSize:64];
-//		CGSize size = [[CCDirector sharedDirector] winSize];
-//		label.position =  ccp( size.width /2 , size.height/2 );
-//		[self addChild: label];
-        
         
         CCSprite * background = [CCSprite spriteWithFile:@"map.png"];
         background.position = ccp( size.width /2 , size.height/2 );
         [self addChild:background];
 
-        CCSprite * frame = [CCSprite spriteWithFile:@"treeframe.png"];
-        frame.position = ccp( size.width /2 , size.height/2 );
-        [self addChild:frame];
+//        CCSprite * frame = [CCSprite spriteWithFile:@"treeframe.png"];
+//        frame.position = ccp( size.width /2 , size.height/2 );
+//        [self addChild:frame];
         
         
         field = [[Field alloc] init];
@@ -65,9 +60,9 @@ Game * __sg = nil;
         [self addChild:field];
         [field restoreFieldFromDTO];
         
-        CGSize nw = frame.boundingBox.size;
+        CGSize nw = background.boundingBox.size;
         
-        nextControlOffset = [frame convertToWorldSpace:ccp(nw.width / 4 - sc(66), nw.height / 2 - sc(434))];
+        nextControlOffset = [background convertToWorldSpace:ccp(nw.width / 4 - sc(66), nw.height / 2 - sc(434))];
 
         
         
@@ -81,12 +76,12 @@ Game * __sg = nil;
         moneyLabel = [CCLabelTTF labelWithString:@"00000" fontName:@"Old London Alternate" fontSize:sc(48)];
         moneyLabel.color = ccc3(128, 64, 0);
         [self addChild:moneyLabel];
-        moneyLabel.position = [frame convertToWorldSpace:ccp(nw.width / 2 - sc(140), nw.height - sc(98))];
+        moneyLabel.position = [background convertToWorldSpace:ccp(nw.width / 2 - sc(140), nw.height - sc(98))];
         
         turnsLabel = [CCLabelTTF labelWithString:@"00000" fontName:@"Old London Alternate" fontSize:sc(48)];
         turnsLabel.color = ccc3(128, 64, 0);
         [self addChild:turnsLabel];
-        turnsLabel.position = [frame convertToWorldSpace:ccp(nw.width / 2 + sc(127), nw.height - sc(98))];
+        turnsLabel.position = [background convertToWorldSpace:ccp(nw.width / 2 + sc(127), nw.height - sc(98))];
         
         [self updateGameState];
         
@@ -116,7 +111,7 @@ Game * __sg = nil;
 		CCMenu * menu = [CCMenu menuWithItems:marketplace, nil];
         [self addChild:menu];
         
-        menu.position = [frame convertToWorldSpace:ccp(nw.width / 2 + sc(190), nw.height / 2 - sc(444))];
+        menu.position = [background convertToWorldSpace:ccp(nw.width / 2 + sc(190), nw.height / 2 - sc(444))];
         
         //menu.position = ccp(100, 100);
         [[NSTimer scheduledTimerWithTimeInterval:30.0f target:self selector:@selector(updateTurnLimit) userInfo:nil repeats:YES] fire];
