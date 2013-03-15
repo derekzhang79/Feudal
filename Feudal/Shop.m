@@ -10,6 +10,7 @@
 #import "FieldObject.h"
 #import "Game.h"
 #import "ccConfig.h"
+#import "GameDTO.h"
 
 
 #define sc(x) x / [UIScreen mainScreen].scale
@@ -37,12 +38,10 @@
         
         _block = [block copy];
 
-        //anchorPoint_ = ccp(0.5, 0.5);
-        
         CCSprite * sprite = [CCSprite spriteWithFile:view];
         [self addChild:sprite];
         
-        CCLabelTTF * label = [CCLabelTTF labelWithString:value fontName:@"Old London Alternate" fontSize:sc(48)];
+        CCLabelTTF * label = [CCLabelTTF labelWithString:value fontName:@"Old London Alternate" fontSize:FSZ(24)];
         label.color = ccc3(128, 64, 0);
         [self addChild:label];
         
@@ -51,8 +50,7 @@
         //sprite.position = ccp(sprite.contentSize.width / 2, sprite.contentSize.height / 2);        
         //label.position = ccp(sprite.contentSize.width + 20, sprite.contentSize.height / 2);
 
-        [self setContentSize:CGSizeMake(sprite.contentSize.width + (sprite.contentSize.width + label.contentSize.width) / 2, sprite.contentSize.height)];
-        
+        [self setContentSize:CGSizeMake(sprite.contentSize.width + (sprite.contentSize.width + label.contentSize.width) / 2, sprite.contentSize.height)];        
         [self registerWithTouchDispatcher];
     }
     return self;
@@ -114,8 +112,14 @@
         CCSprite * background = [CCSprite spriteWithFile:@"fon_large.png"];
         [self addChild:background];
         self.contentSize = background.contentSize;
-        anchorPoint_ = ccp(0.5, 0.5);        
+
+        CCNode * emptyNode = [[CCNode alloc] init];
+        emptyNode.contentSize = CGSizeMake(FSZ(50), FSZ(50));
         
+        [Game addLabel:@"Shop" :emptyNode];
+        
+        [self addChild:emptyNode];
+        emptyNode.position = ccp(FSZ(-17), FSZ(145));
 		
 		ShopMenuItem *item1 = [ShopMenuItem itemWithString:@"10" picture:@"field.png" block:^(id sender) {
 			FieldObject * fo = [[FieldObject alloc] initWithType:FO_FOOD :0];
@@ -146,30 +150,70 @@
             [[Game game] closeShop];
             
 		}];
+
+        
+		ShopMenuItem *item4 = [ShopMenuItem itemWithString:@"40" picture:@"dragon.png" block:^(id sender) {
+			FieldObject * fo = [[FieldObject alloc] initWithType:FO_SPECIAL :0];
+            ShopMenuItem * item = (ShopMenuItem *)sender;
+            fo.view.position = [self convertToWorldSpace:item.position];
+            [parent_ addChild:fo.view];
+            [[Game game] purchaseItem:fo];
+            [[Game game] closeShop];
+            
+		}];
+
+		ShopMenuItem *item5 = [ShopMenuItem itemWithString:@"50" picture:@"mf0044.png" block:^(id sender) {
+			FieldObject * fo = [[FieldObject alloc] initWithType:FO_SPECIAL :1];
+            ShopMenuItem * item = (ShopMenuItem *)sender;
+            fo.view.position = [self convertToWorldSpace:item.position];
+            [parent_ addChild:fo.view];
+            [[Game game] purchaseItem:fo];
+            [[Game game] closeShop];
+            
+		}];
+
+		ShopMenuItem *item6 = [ShopMenuItem itemWithString:@"$.99" picture:@"flour.png" block:^(id sender) {
+			FieldObject * fo = [[FieldObject alloc] initWithType:FO_SPECIAL :1];
+            ShopMenuItem * item = (ShopMenuItem *)sender;
+            fo.view.position = [self convertToWorldSpace:item.position];
+            [parent_ addChild:fo.view];
+            [[Game game] purchaseItem:fo];
+            [[Game game] closeShop];
+            
+		}];
         
         
         [self addChild:item1];
-        item1.position = ccp(sc(-120),  sc(+ 200));
+        item1.position = ccp(FSZ(-100),  FSZ(50));
 
         [self addChild:item2];
-        item2.position = ccp(sc(-120),  sc(+ 50));
+        item2.position = ccp(FSZ(-100),  FSZ(0));
         
         [self addChild:item3];
-        item3.position = ccp(sc(-120),  sc(- 100));
+        item3.position = ccp(FSZ(-100),  FSZ(-50));
 
         
+        [self addChild:item4];
+        item4.position = ccp(FSZ(50),  FSZ(50));
+        
+        [self addChild:item5];
+        item5.position = ccp(FSZ(50),  FSZ(0));
+        
+        [self addChild:item6];
+        item6.position = ccp(FSZ(50),  FSZ(-50));
 
         
         
-		CCMenuItem * ok = [CCMenuItemImage itemWithNormalImage:@"ok.png" selectedImage:@"ok.png" block:^(id sender) {
+		CCMenuItem * ok = [CCMenuItemImage itemWithNormalImage:@"empty.png" selectedImage:@"emptyOn.png" block:^(id sender) {
             [[Game game] closeShop];
 		}
                                     ];
 		
+        [Game addLabel:@"Close" :ok];
 		CCMenu * menu = [CCMenu menuWithItems:ok, nil];
-        [self addChild:menu];
+        [background addChild:menu];
         
-        menu.position = ccp(0,  - 120);
+        menu.position = ccp(background.boundingBox.size.width / 2,  FSZ(60));
         
         
         

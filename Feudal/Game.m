@@ -88,7 +88,6 @@ Game * __sg = nil;
                 Shop * shop  = [Shop node];
                 shop.tag = 137;
                 [self addChild:shop];
-                //shop.position = ccp( size.width /2 , size.height/2 );
                 shop.position = [((CCMenuItem *)sender) convertToWorldSpace:((CCMenuItem *)sender).position];
                 shop.scale = 0.1f;
                 
