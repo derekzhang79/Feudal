@@ -68,19 +68,19 @@ Game * __sg = nil;
         
         moneyLabel = [CCLabelTTF labelWithString:@"00000" fontName:@"Old London Alternate" fontSize:FSZ(24)];
         moneyLabel.color = ccc3(128, 64, 0);
-        [self addChild:moneyLabel];
-        moneyLabel.position = [background convertToWorldSpace:ccp(nw.width / 2 - 70, nw.height - 49)];
+        [background addChild:moneyLabel];
+        moneyLabel.position = ccp(nw.width / 2 - FSZ(70), nw.height - FSZ(49));
         
         turnsLabel = [CCLabelTTF labelWithString:@"00000" fontName:@"Old London Alternate" fontSize:FSZ(24)];
         turnsLabel.color = ccc3(128, 64, 0);
-        [self addChild:turnsLabel];
-        turnsLabel.position = [background convertToWorldSpace:ccp(nw.width / 2 + 64, nw.height - 49)];
+        [background addChild:turnsLabel];
+        turnsLabel.position = ccp(nw.width / 2 + FSZ(64), nw.height - FSZ(49));
         
         [self updateGameState];
         
         
 
-		CCMenuItem * marketplace = [CCMenuItemImage itemWithNormalImage:@"shop_button.png" selectedImage:@"shop_button.png" block:^(id sender) {
+		CCMenuItem * marketplace = [CCMenuItemImage itemWithNormalImage:@"empty.png" selectedImage:@"emptyOn.png" block:^(id sender) {
             
             if (!isShopMode) {
                 isShopMode = YES;
@@ -100,11 +100,24 @@ Game * __sg = nil;
             
 		}
         ];
+        
+        CCLabelTTF * menuLable2 = [CCLabelTTF labelWithString:@"Shop" fontName:@"Old London Alternate" fontSize:FSZ(20)];
+        menuLable2.color = ccc3(80, 40, 0);
+        [marketplace addChild:menuLable2];
+        menuLable2.scale = 1.1f;
+        menuLable2.position = ccp(marketplace.boundingBox.size.width / 2, marketplace.boundingBox.size.height / 2 - 2);
+        
+        CCLabelTTF * menuLable = [CCLabelTTF labelWithString:@"Shop" fontName:@"Old London Alternate" fontSize:FSZ(20)];
+        menuLable.color = ccc3(255, 255, 120);
+        [marketplace addChild:menuLable];
+        menuLable.position = ccp(marketplace.boundingBox.size.width / 2, marketplace.boundingBox.size.height / 2 - 2);
+        
+        
 		
 		CCMenu * menu = [CCMenu menuWithItems:marketplace, nil];
-        [self addChild:menu];
+        [background addChild:menu];
         
-        menu.position = [background convertToWorldSpace:ccp(nw.width / 2 + sc(190), nw.height / 2 - sc(444))];
+        menu.position = ccp(nw.width / 2 + FSZ(100), FSZ(40));
         
         //menu.position = ccp(100, 100);
         [[NSTimer scheduledTimerWithTimeInterval:30.0f target:self selector:@selector(updateTurnLimit) userInfo:nil repeats:YES] fire];
