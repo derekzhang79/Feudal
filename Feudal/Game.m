@@ -101,25 +101,13 @@ Game * __sg = nil;
 		}
         ];
         
-        CCLabelTTF * menuLable2 = [CCLabelTTF labelWithString:@"Shop" fontName:@"Old London Alternate" fontSize:FSZ(20)];
-        menuLable2.color = ccc3(80, 40, 0);
-        [marketplace addChild:menuLable2];
-        menuLable2.scale = 1.1f;
-        menuLable2.position = ccp(marketplace.boundingBox.size.width / 2, marketplace.boundingBox.size.height / 2 - 2);
+        [Game addLabel:@"Shop" :marketplace];
         
-        CCLabelTTF * menuLable = [CCLabelTTF labelWithString:@"Shop" fontName:@"Old London Alternate" fontSize:FSZ(20)];
-        menuLable.color = ccc3(255, 255, 120);
-        [marketplace addChild:menuLable];
-        menuLable.position = ccp(marketplace.boundingBox.size.width / 2, marketplace.boundingBox.size.height / 2 - 2);
-        
-        
-		
 		CCMenu * menu = [CCMenu menuWithItems:marketplace, nil];
         [background addChild:menu];
         
         menu.position = ccp(nw.width / 2 + FSZ(100), FSZ(40));
         
-        //menu.position = ccp(100, 100);
         [[NSTimer scheduledTimerWithTimeInterval:30.0f target:self selector:@selector(updateTurnLimit) userInfo:nil repeats:YES] fire];
 	}
 	return self;
