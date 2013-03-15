@@ -84,9 +84,33 @@
     }
 }
 
-- (NSString *) pathForDocuments{
+- (NSString *) pathForDocuments {
 	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
 	return [paths objectAtIndex:0];
+}
+
+- (void) userDidSharing {
+    if(!self.lastSharingTime) {
+        self.lastSharingTime = [NSDate date];
+        [self incrementLimitAfterSharing];
+    }
+    else {
+        NSTimeInterval interval = [[NSDate date] timeIntervalSinceDate:self.lastUpdateTime];
+        if(interval > 60 * 60 * 24) {
+            [self incrementLimitAfterSharing];
+            self.lastSharingTime = [NSDate date];
+        }
+    }
+    
+    [self save];
+}
+
+- (void) incrementLimitAfterSharing {
+    NSInteger turnCount = [self.turnCount integerValue];
+    turnCount += TURN_SHARING_INC;
+    if(turnCount > TURN_LIMIT) {
+        turnCount = TURN_LIMIT;
+    }
 }
 
 @end

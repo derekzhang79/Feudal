@@ -87,6 +87,7 @@
         CCMenuItem * facebook = [CCMenuItemImage itemWithNormalImage:@"facebook.png" selectedImage:@"facebook.png" block:^(id sender) {
             SHKItem *item = [SHKItem text:@"test text"];
             SHKSharer* sharer = [[[SHKFacebook alloc] init] autorelease];
+            sharer.shareDelegate = self;
             [sharer loadItem:item];
             
             [sharer share];
@@ -95,6 +96,7 @@
         CCMenuItem * twitter = [CCMenuItemImage itemWithNormalImage:@"twitter.png" selectedImage:@"twitter.png" block:^(id sender) {
             SHKItem *item = [SHKItem text:@"test text"];
             SHKSharer* sharer = [[[SHKTwitter alloc] init] autorelease];
+            sharer.shareDelegate = self;
             [sharer loadItem:item];
             
             [sharer share];
@@ -104,7 +106,6 @@
         menu.position = ccpSub(logo.position, ccp(0, logo.boundingBox.size.height / 2 + offsetH));
         
         CCMenu * socialMenu = [CCMenu menuWithItems:facebook, twitter, nil];
-        CGFloat center = [background boundingBox].size.width / 2;
         socialMenu.position = ccp(FSZ(80), FSZ(40));
         [socialMenu alignItemsHorizontally];
         [background addChild:socialMenu];
@@ -112,5 +113,8 @@
 	return self;
 }
 
+- (void)sharerFinishedSending:(SHKSharer *)sharer {
+    [[GameDTO dto] userDidSharing];
+}
 
 @end

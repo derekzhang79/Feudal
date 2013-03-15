@@ -10,7 +10,8 @@
 
 #define FSZ(x) ((UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) + 1) * x
 
-#define TURN_LIMIT      500
+#define TURN_LIMIT          500
+#define TURN_SHARING_INC    100
 
 @interface GameDTO : NSObject
 @property (nonatomic, strong) NSNumber *wasPurchased;
@@ -22,8 +23,10 @@
 @property (nonatomic, strong) NSArray *types;
 @property (nonatomic, strong) NSArray *levels;
 @property (nonatomic, strong) NSDate *lastUpdateTime;
+@property (nonatomic, strong) NSDate *lastSharingTime;
 
 + (GameDTO *) dto;
 - (void) save;
+- (void) userDidSharing;
 
 @end

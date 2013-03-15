@@ -8,8 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
+#import "SHKSharer.h"
 
-@interface MainMenu : CCLayer {
+@interface MainMenu : CCLayer <SHKSharerDelegate> {
     
 }
 
