@@ -28,7 +28,7 @@ static NSArray * table;
                 @[@(FO_CREATURE),   @4, @0,    @"knight.png"],
                 @[@(FO_CREATURE),   @5, @0,    @"feudal.png"],
                 @[@(FO_SPECIAL),    @0, @2,    @"dragon.png"],
-                @[@(FO_SPECIAL),    @1, @10,    @"mf0038.png"]
+                @[@(FO_SPECIAL),    @1, @10,    @"diamond.png"]
                 ] copy];
 }
 

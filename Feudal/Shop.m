@@ -162,7 +162,7 @@
             
 		}];
 
-		ShopMenuItem *item5 = [ShopMenuItem itemWithString:@"50" picture:@"mf0044.png" block:^(id sender) {
+		ShopMenuItem *item5 = [ShopMenuItem itemWithString:@"50" picture:@"diamond.png" block:^(id sender) {
 			FieldObject * fo = [[FieldObject alloc] initWithType:FO_SPECIAL :1];
             ShopMenuItem * item = (ShopMenuItem *)sender;
             fo.view.position = [self convertToWorldSpace:item.position];
