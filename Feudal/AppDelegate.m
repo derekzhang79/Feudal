@@ -12,6 +12,7 @@
 #import "IntroLayer.h"
 #import "SHKConfiguration.h"
 #import "MySHKConfigurator.h"
+#import "TestFlight.h"
 
 @implementation AppController
 
@@ -24,7 +25,10 @@
     
     DefaultSHKConfigurator *configurator = [[[MySHKConfigurator alloc] init] autorelease];
     [SHKConfiguration sharedInstanceWithConfigurator:configurator];
-
+    
+    [TestFlight takeOff:@"3c66f3fe66d3c2cf63c951a2b00ae0a7_MTgxNzM2MjAxMy0wMS0zMSAwNzoxMjozNC40NzQ4NjM"];
+    [TestFlight setDeviceIdentifier:[[UIDevice currentDevice] uniqueIdentifier]];
+    
 	// Create an CCGLView with a RGB565 color buffer, and a depth buffer of 0-bits
 	CCGLView *glView = [CCGLView viewWithFrame:[window_ bounds]
 								   pixelFormat:kEAGLColorFormatRGB565	//kEAGLColorFormatRGBA8

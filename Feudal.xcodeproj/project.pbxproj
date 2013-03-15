@@ -27,6 +27,10 @@
 		508735DC16F34D10002A78A6 /* twitter-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 508735D916F34D10002A78A6 /* twitter-hd.png */; };
 		508735DD16F34D10002A78A6 /* twitter-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = 508735DA16F34D10002A78A6 /* twitter-ipadhd.png */; };
 		508735DE16F34D10002A78A6 /* twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = 508735DB16F34D10002A78A6 /* twitter.png */; };
+		508735E816F3561F002A78A6 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 508735E416F3561F002A78A6 /* libTestFlight.a */; };
+		508735E916F3561F002A78A6 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 508735E516F3561F002A78A6 /* README.md */; };
+		508735EA16F3561F002A78A6 /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = 508735E616F3561F002A78A6 /* release_notes.md */; };
+		508735EC16F35653002A78A6 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 508735EB16F35653002A78A6 /* libz.dylib */; };
 		50C4AF7616E0AE740031F9C4 /* GameDTO.m in Sources */ = {isa = PBXBuildFile; fileRef = 50C4AF7516E0AE740031F9C4 /* GameDTO.m */; };
 		DD3173F1169C5D3700B8378F /* MainMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = DD3173F0169C5D3700B8378F /* MainMenu.m */; };
 		DD3173FF169C5E6800B8378F /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = DD3173F5169C5E6800B8378F /* logo.png */; };
@@ -587,6 +591,11 @@
 		508735D916F34D10002A78A6 /* twitter-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "twitter-hd.png"; sourceTree = "<group>"; };
 		508735DA16F34D10002A78A6 /* twitter-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "twitter-ipadhd.png"; sourceTree = "<group>"; };
 		508735DB16F34D10002A78A6 /* twitter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = twitter.png; sourceTree = "<group>"; };
+		508735E416F3561F002A78A6 /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
+		508735E516F3561F002A78A6 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		508735E616F3561F002A78A6 /* release_notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.md; sourceTree = "<group>"; };
+		508735E716F3561F002A78A6 /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
+		508735EB16F35653002A78A6 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		50C4AF7416E0AE730031F9C4 /* GameDTO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameDTO.h; sourceTree = "<group>"; };
 		50C4AF7516E0AE740031F9C4 /* GameDTO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameDTO.m; sourceTree = "<group>"; };
 		DD3173EF169C5D3700B8378F /* MainMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenu.h; sourceTree = "<group>"; };
@@ -990,6 +999,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				508735EC16F35653002A78A6 /* libz.dylib in Frameworks */,
 				500CB33F16F32DED00566586 /* CoreLocation.framework in Frameworks */,
 				500CB33D16F32C7D00566586 /* Social.framework in Frameworks */,
 				500CB33B16F32C6E00566586 /* libsqlite3.dylib in Frameworks */,
@@ -1011,6 +1021,7 @@
 				DD65AF4416413F3000A0DBD1 /* Foundation.framework in Frameworks */,
 				DD65AF4616413F3000A0DBD1 /* CoreGraphics.framework in Frameworks */,
 				DD65AF4816413F3000A0DBD1 /* GameKit.framework in Frameworks */,
+				508735E816F3561F002A78A6 /* libTestFlight.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1075,6 +1086,17 @@
 			name = social;
 			sourceTree = "<group>";
 		};
+		508735E316F3561F002A78A6 /* TestFlightSDK1.1 */ = {
+			isa = PBXGroup;
+			children = (
+				508735E416F3561F002A78A6 /* libTestFlight.a */,
+				508735E516F3561F002A78A6 /* README.md */,
+				508735E616F3561F002A78A6 /* release_notes.md */,
+				508735E716F3561F002A78A6 /* TestFlight.h */,
+			);
+			path = TestFlightSDK1.1;
+			sourceTree = "<group>";
+		};
 		DD3173F3169C5DC500B8378F /* menu */ = {
 			isa = PBXGroup;
 			children = (
@@ -1126,6 +1148,7 @@
 		DD65AF2816413F3000A0DBD1 = {
 			isa = PBXGroup;
 			children = (
+				508735EB16F35653002A78A6 /* libz.dylib */,
 				500CB33E16F32DED00566586 /* CoreLocation.framework */,
 				500CB2A416F32ABF00566586 /* ShareKit.xcodeproj */,
 				DDA3C96316413F9600223401 /* Default-568h@2x.png */,
@@ -1172,6 +1195,7 @@
 		DD65AF4916413F3000A0DBD1 /* Feudal */ = {
 			isa = PBXGroup;
 			children = (
+				508735E316F3561F002A78A6 /* TestFlightSDK1.1 */,
 				DDA3C9F816458C0C00223401 /* FieldObject.h */,
 				DDA3C9F916458C0C00223401 /* FieldObject.m */,
 				DD65B0C116413F3200A0DBD1 /* AppDelegate.h */,
@@ -2138,6 +2162,8 @@
 				508735DC16F34D10002A78A6 /* twitter-hd.png in Resources */,
 				508735DD16F34D10002A78A6 /* twitter-ipadhd.png in Resources */,
 				508735DE16F34D10002A78A6 /* twitter.png in Resources */,
+				508735E916F3561F002A78A6 /* README.md in Resources */,
+				508735EA16F3561F002A78A6 /* release_notes.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2329,6 +2355,10 @@
 				HEADER_SEARCH_PATHS = "\"Feudal/libs/kazmath/include\"";
 				INFOPLIST_FILE = Feudal/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Feudal/TestFlightSDK1.1\"",
+				);
 				OTHER_LDFLAGS = (
 					"-lz",
 					"-ObjC",
@@ -2350,6 +2380,10 @@
 				HEADER_SEARCH_PATHS = "\"Feudal/libs/kazmath/include\"";
 				INFOPLIST_FILE = Feudal/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Feudal/TestFlightSDK1.1\"",
+				);
 				OTHER_LDFLAGS = (
 					"-lz",
 					"-ObjC",
