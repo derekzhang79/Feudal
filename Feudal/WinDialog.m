@@ -9,6 +9,7 @@
 #import "WinDialog.h"
 #import "Game.h"
 #import "GameDTO.h"
+#import "MainMenu.h"
 
 @implementation WinDialog
 
@@ -38,6 +39,9 @@
         
 
 		CCMenuItem * ok = [CCMenuItemImage itemWithNormalImage:@"empty.png" selectedImage:@"emptyOn.png" block:^(id sender) {
+            [GameDTO dto].levels = nil;
+            [GameDTO dto].types = nil;
+            [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[MainMenu scene] withColor:ccWHITE]];
             
 		}
                            ];
