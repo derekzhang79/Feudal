@@ -10,6 +10,8 @@
 
 #import "AppDelegate.h"
 #import "IntroLayer.h"
+#import "SHKConfiguration.h"
+#import "MySHKConfigurator.h"
 
 @implementation AppController
 
@@ -19,7 +21,9 @@
 {
 	// Create the main window
 	window_ = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-
+    
+    DefaultSHKConfigurator *configurator = [[[MySHKConfigurator alloc] init] autorelease];
+    [SHKConfiguration sharedInstanceWithConfigurator:configurator];
 
 	// Create an CCGLView with a RGB565 color buffer, and a depth buffer of 0-bits
 	CCGLView *glView = [CCGLView viewWithFrame:[window_ bounds]

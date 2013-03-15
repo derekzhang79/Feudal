@@ -9,6 +9,9 @@
 #import "MainMenu.h"
 #import "Game.h"
 #import "GameDTO.h"
+#import "SHK.h"
+#import "SHKMail.h"
+#import "SHKFacebook.h"
 
 @implementation MainMenu
 
@@ -64,6 +67,11 @@
         [Game addLabel:@"Options" :options];
         
         CCMenuItem * help = [CCMenuItemImage itemWithNormalImage:@"empty.png" selectedImage:@"emptyOn.png" block:^(id sender) {
+            SHKItem *item = [SHKItem text:@"test text"];
+            SHKSharer* sharer = [[[SHKFacebook alloc] init] autorelease];
+            [sharer loadItem:item];
+
+            [sharer share];
         }];
         [Game addLabel:@"Help" :help];
         
