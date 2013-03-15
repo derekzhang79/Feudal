@@ -228,6 +228,10 @@
 		DD9008E516F33A240089FA48 /* diamond-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = DD9008E216F33A240089FA48 /* diamond-hd.png */; };
 		DD9008E616F33A240089FA48 /* diamond-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = DD9008E316F33A240089FA48 /* diamond-ipadhd.png */; };
 		DD9008E716F33A240089FA48 /* diamond.png in Resources */ = {isa = PBXBuildFile; fileRef = DD9008E416F33A240089FA48 /* diamond.png */; };
+		DD9008EE16F351490089FA48 /* WinDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = DD9008ED16F351490089FA48 /* WinDialog.m */; };
+		DD90091616F352C70089FA48 /* fon-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = DD90091316F352C70089FA48 /* fon-hd.png */; };
+		DD90091716F352C70089FA48 /* fon-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = DD90091416F352C70089FA48 /* fon-ipadhd.png */; };
+		DD90091816F352C70089FA48 /* fon.png in Resources */ = {isa = PBXBuildFile; fileRef = DD90091516F352C70089FA48 /* fon.png */; };
 		DDA3C96416413F9600223401 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DDA3C96316413F9600223401 /* Default-568h@2x.png */; };
 		DDA3C9D91641410C00223401 /* bread.png in Resources */ = {isa = PBXBuildFile; fileRef = DDA3C9C81641410C00223401 /* bread.png */; };
 		DDA3C9DA1641410C00223401 /* cells.png in Resources */ = {isa = PBXBuildFile; fileRef = DDA3C9C91641410C00223401 /* cells.png */; };
@@ -932,6 +936,11 @@
 		DD9008E216F33A240089FA48 /* diamond-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "diamond-hd.png"; sourceTree = "<group>"; };
 		DD9008E316F33A240089FA48 /* diamond-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "diamond-ipadhd.png"; sourceTree = "<group>"; };
 		DD9008E416F33A240089FA48 /* diamond.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = diamond.png; sourceTree = "<group>"; };
+		DD9008EC16F351490089FA48 /* WinDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WinDialog.h; sourceTree = "<group>"; };
+		DD9008ED16F351490089FA48 /* WinDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WinDialog.m; sourceTree = "<group>"; };
+		DD90091316F352C70089FA48 /* fon-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "fon-hd.png"; path = "Resources/fon-hd.png"; sourceTree = "<group>"; };
+		DD90091416F352C70089FA48 /* fon-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "fon-ipadhd.png"; path = "Resources/fon-ipadhd.png"; sourceTree = "<group>"; };
+		DD90091516F352C70089FA48 /* fon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = fon.png; path = Resources/fon.png; sourceTree = "<group>"; };
 		DDA3C96316413F9600223401 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		DDA3C9C81641410C00223401 /* bread.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bread.png; sourceTree = "<group>"; };
 		DDA3C9C91641410C00223401 /* cells.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cells.png; sourceTree = "<group>"; };
@@ -1195,6 +1204,11 @@
 		DD65AF4916413F3000A0DBD1 /* Feudal */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
+=======
+				DD9008EC16F351490089FA48 /* WinDialog.h */,
+				DD9008ED16F351490089FA48 /* WinDialog.m */,
+>>>>>>> fix
 				508735E316F3561F002A78A6 /* TestFlightSDK1.1 */,
 				DDA3C9F816458C0C00223401 /* FieldObject.h */,
 				DDA3C9F916458C0C00223401 /* FieldObject.m */,
@@ -1226,6 +1240,9 @@
 		DD65AF4A16413F3000A0DBD1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				DD90091316F352C70089FA48 /* fon-hd.png */,
+				DD90091416F352C70089FA48 /* fon-ipadhd.png */,
+				DD90091516F352C70089FA48 /* fon.png */,
 				500CB37516F344F800566586 /* social */,
 				DD9008DC16F31E910089FA48 /* fon_large-hd.png */,
 				DD9008DD16F31E910089FA48 /* fon_large-ipadhd.png */,
@@ -2162,6 +2179,12 @@
 				508735DC16F34D10002A78A6 /* twitter-hd.png in Resources */,
 				508735DD16F34D10002A78A6 /* twitter-ipadhd.png in Resources */,
 				508735DE16F34D10002A78A6 /* twitter.png in Resources */,
+<<<<<<< HEAD
+=======
+				DD90091616F352C70089FA48 /* fon-hd.png in Resources */,
+				DD90091716F352C70089FA48 /* fon-ipadhd.png in Resources */,
+				DD90091816F352C70089FA48 /* fon.png in Resources */,
+>>>>>>> fix
 				508735E916F3561F002A78A6 /* README.md in Resources */,
 				508735EA16F3561F002A78A6 /* release_notes.md in Resources */,
 			);
@@ -2285,6 +2308,7 @@
 				DD3173F1169C5D3700B8378F /* MainMenu.m in Sources */,
 				50C4AF7616E0AE740031F9C4 /* GameDTO.m in Sources */,
 				500CB34216F3362F00566586 /* MySHKConfigurator.m in Sources */,
+				DD9008EE16F351490089FA48 /* WinDialog.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -12,6 +12,7 @@
 #import "Shop.h"
 #import "GameDTO.h"
 #import "MainMenu.h"
+#import "WinDialog.h"
 
 #define sc(x) x / [UIScreen mainScreen].scale
 
@@ -347,7 +348,15 @@ Game * __sg = nil;
     }
     
     if ([field findObjectsByType:FO_FOOD :5].count > 0 && [field findObjectsByType:FO_FOOD :5].count > 0) {
-        // win
+        // Win!!!
+        
+        self.isTouchEnabled = NO;
+        
+        CGSize size = [[CCDirector sharedDirector] winSize];
+        
+        WinDialog * win  = [WinDialog node];
+        [self addChild:win];
+        win.position = ccp(size.width / 2, size.height / 2);
         
     }
     
