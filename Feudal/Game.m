@@ -345,7 +345,17 @@ Game * __sg = nil;
         [GameDTO dto].types = nil;
         [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[MainMenu scene] withColor:ccWHITE]];
     }
+    
+    if ([field findObjectsByType:FO_FOOD :5].count > 0 && [field findObjectsByType:FO_FOOD :5].count > 0) {
+        // win
+        
+    }
+    
+    
 }
+
+
+
 
 - (void) updateTurnLimit {
     NSDate *now = [NSDate date];

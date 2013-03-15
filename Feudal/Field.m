@@ -218,7 +218,7 @@ static int offsets[4][2] = {{-1, 0}, {0, -1}, {1, 0}, {0, 1}};
     CCDelayTime * initialDelay = [CCDelayTime actionWithDuration:delay];
 
     
-    if (list.count >= 3) {
+    if (list.count >= 3 && ((FieldObject *)[list objectAtIndex:0]).level < 5) {
         
         FieldObject * targetObject = [self objectAtX:x Y:y];
         
@@ -229,8 +229,6 @@ static int offsets[4][2] = {{-1, 0}, {0, -1}, {1, 0}, {0, 1}};
             id action2 = [CCFadeOut actionWithDuration:0.2];
             
             [o.view runAction: [CCSequence actions:initialDelay, action1, action2, nil]];
-        
-            
             
         }
         
@@ -409,7 +407,7 @@ static int offsets[4][2] = {{-1, 0}, {0, -1}, {1, 0}, {0, 1}};
     fakeObject.x = x;
     fakeObject.y = y;
     
-    for (int j = 5; j >= 0; j--) {
+    for (int j = 4; j >= 0; j--) {
         for (int i = 2; i >= 1; i--) {
             if (i == FO_CREATURE && j == 0) {
                 continue;
