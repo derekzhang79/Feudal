@@ -1204,11 +1204,8 @@
 		DD65AF4916413F3000A0DBD1 /* Feudal */ = {
 			isa = PBXGroup;
 			children = (
-<<<<<<< HEAD
-=======
 				DD9008EC16F351490089FA48 /* WinDialog.h */,
 				DD9008ED16F351490089FA48 /* WinDialog.m */,
->>>>>>> fix
 				508735E316F3561F002A78A6 /* TestFlightSDK1.1 */,
 				DDA3C9F816458C0C00223401 /* FieldObject.h */,
 				DDA3C9F916458C0C00223401 /* FieldObject.m */,
@@ -2179,12 +2176,9 @@
 				508735DC16F34D10002A78A6 /* twitter-hd.png in Resources */,
 				508735DD16F34D10002A78A6 /* twitter-ipadhd.png in Resources */,
 				508735DE16F34D10002A78A6 /* twitter.png in Resources */,
-<<<<<<< HEAD
-=======
 				DD90091616F352C70089FA48 /* fon-hd.png in Resources */,
 				DD90091716F352C70089FA48 /* fon-ipadhd.png in Resources */,
 				DD90091816F352C70089FA48 /* fon.png in Resources */,
->>>>>>> fix
 				508735E916F3561F002A78A6 /* README.md in Resources */,
 				508735EA16F3561F002A78A6 /* release_notes.md in Resources */,
 			);
