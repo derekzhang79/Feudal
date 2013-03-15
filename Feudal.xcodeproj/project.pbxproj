@@ -31,6 +31,7 @@
 		508735E916F3561F002A78A6 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 508735E516F3561F002A78A6 /* README.md */; };
 		508735EA16F3561F002A78A6 /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = 508735E616F3561F002A78A6 /* release_notes.md */; };
 		508735EC16F35653002A78A6 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 508735EB16F35653002A78A6 /* libz.dylib */; };
+		509ECDC416F36DAD00DFC872 /* Options.m in Sources */ = {isa = PBXBuildFile; fileRef = 509ECDC316F36DAD00DFC872 /* Options.m */; };
 		50C4AF7616E0AE740031F9C4 /* GameDTO.m in Sources */ = {isa = PBXBuildFile; fileRef = 50C4AF7516E0AE740031F9C4 /* GameDTO.m */; };
 		DD3173F1169C5D3700B8378F /* MainMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = DD3173F0169C5D3700B8378F /* MainMenu.m */; };
 		DD3173FF169C5E6800B8378F /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = DD3173F5169C5E6800B8378F /* logo.png */; };
@@ -600,6 +601,8 @@
 		508735E616F3561F002A78A6 /* release_notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.md; sourceTree = "<group>"; };
 		508735E716F3561F002A78A6 /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
 		508735EB16F35653002A78A6 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		509ECDC216F36DAD00DFC872 /* Options.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Options.h; sourceTree = "<group>"; };
+		509ECDC316F36DAD00DFC872 /* Options.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Options.m; sourceTree = "<group>"; };
 		50C4AF7416E0AE730031F9C4 /* GameDTO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameDTO.h; sourceTree = "<group>"; };
 		50C4AF7516E0AE740031F9C4 /* GameDTO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameDTO.m; sourceTree = "<group>"; };
 		DD3173EF169C5D3700B8378F /* MainMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenu.h; sourceTree = "<group>"; };
@@ -1227,6 +1230,8 @@
 				50C4AF7516E0AE740031F9C4 /* GameDTO.m */,
 				500CB34016F3362F00566586 /* MySHKConfigurator.h */,
 				500CB34116F3362F00566586 /* MySHKConfigurator.m */,
+				509ECDC216F36DAD00DFC872 /* Options.h */,
+				509ECDC316F36DAD00DFC872 /* Options.m */,
 				DD65AF4A16413F3000A0DBD1 /* Resources */,
 				DD65AF6416413F3100A0DBD1 /* libs */,
 				DD65B0BD16413F3200A0DBD1 /* Supporting Files */,
@@ -2303,6 +2308,7 @@
 				50C4AF7616E0AE740031F9C4 /* GameDTO.m in Sources */,
 				500CB34216F3362F00566586 /* MySHKConfigurator.m in Sources */,
 				DD9008EE16F351490089FA48 /* WinDialog.m in Sources */,
+				509ECDC416F36DAD00DFC872 /* Options.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

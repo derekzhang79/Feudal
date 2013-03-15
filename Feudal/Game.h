@@ -12,6 +12,8 @@
 #import "FieldObject.h"
 #import "Field.h"
 
+#define sc(x) x / [UIScreen mainScreen].scale
+
 @interface Game : CCLayer// <GKAchievementViewControllerDelegate, GKLeaderboardViewControllerDelegate>
 {
     NSMutableArray * next;

@@ -14,8 +14,6 @@
 #import "MainMenu.h"
 #import "WinDialog.h"
 
-#define sc(x) x / [UIScreen mainScreen].scale
-
 @implementation Game
 
 // Helper class method that creates a Scene with the HelloWorldLayer as the only child.

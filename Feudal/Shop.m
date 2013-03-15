@@ -214,9 +214,6 @@
         [background addChild:menu];
         
         menu.position = ccp(background.boundingBox.size.width / 2,  FSZ(60));
-        
-        
-        
     }
     return self;
 }

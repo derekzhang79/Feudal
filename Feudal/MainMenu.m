@@ -12,10 +12,9 @@
 #import "SHK.h"
 #import "SHKTwitter.h"
 #import "SHKFacebook.h"
+#import "Options.h"
 
 @implementation MainMenu
-
-
 
 +(CCScene *) scene
 {
@@ -48,8 +47,6 @@
         }];
         
         [Game addLabel:@"Continue" :continueItem];
-
-        
 		
         CCMenuItem * start = [CCMenuItemImage itemWithNormalImage:@"empty.png" selectedImage:@"emptyOn.png" block:^(id sender) {
             //  clear the save and start game from scratch
@@ -63,7 +60,18 @@
 
         
         CCMenuItem * options = [CCMenuItemImage itemWithNormalImage:@"empty.png" selectedImage:@"emptyOn.png" block:^(id sender) {
+                Options * shop  = [Options node];
+                shop.tag = 137;
+                [self addChild:shop];
+                shop.position = [((CCMenuItem *)sender) convertToWorldSpace:((CCMenuItem *)sender).position];
+                shop.scale = 0.1f;
+                
+                
+                CCMoveTo * moveAction = [CCMoveTo actionWithDuration:0.25f position:ccp( size.width /2 , size.height/2 )];
+                CCScaleTo * scaleAction = [CCScaleTo actionWithDuration:0.25f scale:1.0f];
+                [shop runAction:[CCSpawn actionOne:moveAction two:scaleAction]];
         }];
+        
         [Game addLabel:@"Options" :options];
         
         CCMenuItem * help = [CCMenuItemImage itemWithNormalImage:@"empty.png" selectedImage:@"emptyOn.png" block:^(id sender) {
