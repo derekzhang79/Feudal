@@ -44,7 +44,7 @@
             [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[Game scene] withColor:ccWHITE]];
         }];
         
-        [self addLableToMenu:@"Continue" :continueItem];
+        [Game addLabel:@"Continue" :continueItem];
 
         
 		
@@ -56,16 +56,16 @@
         
         }];
         
-        [self addLableToMenu:@"New Game" :start];
+        [Game addLabel:@"New Game" :start];
 
         
         CCMenuItem * options = [CCMenuItemImage itemWithNormalImage:@"empty.png" selectedImage:@"emptyOn.png" block:^(id sender) {
         }];
-        [self addLableToMenu:@"Options" :options];
+        [Game addLabel:@"Options" :options];
         
         CCMenuItem * help = [CCMenuItemImage itemWithNormalImage:@"empty.png" selectedImage:@"emptyOn.png" block:^(id sender) {
         }];
-        [self addLableToMenu:@"Help" :help];
+        [Game addLabel:@"Help" :help];
         
         
 		CCMenu * menu = [CCMenu menuWithItems:nil];
@@ -91,21 +91,5 @@
 	return self;
 }
 
-
--(void)addLableToMenu:(NSString *) txt :(CCMenuItem *) item{
-                
-
-    CCLabelTTF * menuLable2 = [CCLabelTTF labelWithString:txt fontName:@"Old London Alternate" fontSize:FSZ(20)];
-    menuLable2.color = ccc3(80, 40, 0);
-    [item addChild:menuLable2];
-    menuLable2.scale = 1.1f;
-    menuLable2.position = ccp(item.boundingBox.size.width / 2, item.boundingBox.size.height / 2 - 2);
-    
-    CCLabelTTF * menuLable = [CCLabelTTF labelWithString:txt fontName:@"Old London Alternate" fontSize:FSZ(20)];
-    menuLable.color = ccc3(255, 255, 120);
-    [item addChild:menuLable];
-    menuLable.position = ccp(item.boundingBox.size.width / 2, item.boundingBox.size.height / 2 - 2);
-    
-}
 
 @end

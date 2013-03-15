@@ -379,4 +379,17 @@ Game * __sg = nil;
     }
 }
 
++(void)addLabel:(NSString *) txt :(CCNode *) node {
+    CCLabelTTF * menuLable2 = [CCLabelTTF labelWithString:txt fontName:@"Old London Alternate" fontSize:FSZ(20)];
+    menuLable2.color = ccc3(80, 40, 0);
+    [node addChild:menuLable2];
+    menuLable2.scale = 1.1f;
+    menuLable2.position = ccp(node.boundingBox.size.width / 2, node.boundingBox.size.height / 2 - 2);
+    
+    CCLabelTTF * menuLable = [CCLabelTTF labelWithString:txt fontName:@"Old London Alternate" fontSize:FSZ(20)];
+    menuLable.color = ccc3(255, 255, 120);
+    [node addChild:menuLable];
+    menuLable.position = ccp(node.boundingBox.size.width / 2, node.boundingBox.size.height / 2 - 2);
+}
+
 @end

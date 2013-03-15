@@ -110,11 +110,8 @@
 {
 	if( (self=[super init]) ) {
         
-        
 
-        
-
-        CCSprite * background = [CCSprite spriteWithFile:@"fon_shop.png"];
+        CCSprite * background = [CCSprite spriteWithFile:@"fon_large.png"];
         [self addChild:background];
         self.contentSize = background.contentSize;
         anchorPoint_ = ccp(0.5, 0.5);        

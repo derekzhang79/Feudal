@@ -46,4 +46,6 @@
 
 -(void)closeShop;
 
++(void)addLabel:(NSString *) txt :(CCNode *) node;
+
 @end
