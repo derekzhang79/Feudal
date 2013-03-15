@@ -10,7 +10,7 @@
 #import "Game.h"
 #import "GameDTO.h"
 #import "SHK.h"
-#import "SHKMail.h"
+#import "SHKTwitter.h"
 #import "SHKFacebook.h"
 
 @implementation MainMenu
@@ -67,11 +67,6 @@
         [Game addLabel:@"Options" :options];
         
         CCMenuItem * help = [CCMenuItemImage itemWithNormalImage:@"empty.png" selectedImage:@"emptyOn.png" block:^(id sender) {
-            SHKItem *item = [SHKItem text:@"test text"];
-            SHKSharer* sharer = [[[SHKFacebook alloc] init] autorelease];
-            [sharer loadItem:item];
-
-            [sharer share];
         }];
         [Game addLabel:@"Help" :help];
         
@@ -89,12 +84,30 @@
         [menu alignItemsVertically];
         [background addChild:menu];
         
+        CCMenuItem * facebook = [CCMenuItemImage itemWithNormalImage:@"facebook.png" selectedImage:@"facebook.png" block:^(id sender) {
+            SHKItem *item = [SHKItem text:@"test text"];
+            SHKSharer* sharer = [[[SHKFacebook alloc] init] autorelease];
+            [sharer loadItem:item];
+            
+            [sharer share];
+        }];
         
-        [menu.children objectAtIndex:0];
+        CCMenuItem * twitter = [CCMenuItemImage itemWithNormalImage:@"twitter.png" selectedImage:@"twitter.png" block:^(id sender) {
+            SHKItem *item = [SHKItem text:@"test text"];
+            SHKSharer* sharer = [[[SHKTwitter alloc] init] autorelease];
+            [sharer loadItem:item];
+            
+            [sharer share];
+        }];
         
         int offsetH = ((CCMenuItem *)([menu.children objectAtIndex:0])).position.y + ((CCMenuItem *)([menu.children objectAtIndex:0])).boundingBox.size.height / 2;
         menu.position = ccpSub(logo.position, ccp(0, logo.boundingBox.size.height / 2 + offsetH));
         
+        CCMenu * socialMenu = [CCMenu menuWithItems:facebook, twitter, nil];
+        CGFloat center = [background boundingBox].size.width / 2;
+        socialMenu.position = ccp(FSZ(80), FSZ(40));
+        [socialMenu alignItemsHorizontally];
+        [background addChild:socialMenu];
 	}
 	return self;
 }
