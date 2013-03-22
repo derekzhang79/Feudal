@@ -51,14 +51,16 @@
         
         menu.position = ccp(background.boundingBox.size.width / 2 + FSZ(10),  FSZ(40));
         
-        CCMenu * socialMenu = [MainMenu socialMenuWithDelegate:nil];
-        socialMenu.position = ccp(FSZ(80), FSZ(40));
+        CCMenu * socialMenu = [MainMenu socialMenuWithDelegate:self];
+        socialMenu.position = ccp(FSZ(80), FSZ(38));
         [background addChild:socialMenu];
     }
     
     return self;
-    
-    
+}
+
+- (void)sharerFinishedSending:(SHKSharer *)sharer {
+    [[GameDTO dto] userDidSharing];
 }
 
 @end
