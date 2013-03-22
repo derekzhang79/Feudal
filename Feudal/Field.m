@@ -262,7 +262,7 @@ static int offsets[4][2] = {{-1, 0}, {0, -1}, {1, 0}, {0, 1}};
         
         //self.scoreBonus += ;
         [[Game game] addMoney:targetObject.view.position :(list.count + list.count - 3) * (targetObject.level + 1)];
-        
+        [[SimpleAudioEngine sharedEngine] playEffect:@"j04.wav"];
         
 
         return true;
