@@ -13,6 +13,7 @@
 #import "SHKConfiguration.h"
 #import "MySHKConfigurator.h"
 #import "TestFlight.h"
+#import "MySoundManager.h"
 
 @implementation AppController
 
@@ -81,6 +82,7 @@
 	// Assume that PVR images have premultiplied alpha
 	[CCTexture2D PVRImagesHavePremultipliedAlpha:YES];
 
+    [MySoundManager soundManager];
 	// and add the scene to the stack. The director will run it when it automatically when the view is displayed.
 	[director_ pushScene: [IntroLayer scene]]; 
 

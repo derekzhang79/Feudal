@@ -10,6 +10,7 @@
 #import "SimpleAudioEngine.h"
 #import "CocosDenshion.h"
 #import "CDAudioManager.h"
+#import "GameDTO.h"
 
 
 
@@ -18,7 +19,7 @@
 -(id)init {
     if( (self=[super init])) {
         currentMusic = nil;
-        musicEnabled = true;
+        musicEnabled = [[GameDTO dto].musicOnOff boolValue];
         [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"game01.mp3"];
         [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"game02.mp3"];
     }

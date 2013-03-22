@@ -14,6 +14,7 @@
 #import "SHKFacebook.h"
 #import "Options.h"
 #import "MySoundManager.h"
+#import "SimpleAudioEngine.h"
 
 @implementation MainMenu
 

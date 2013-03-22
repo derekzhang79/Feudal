@@ -14,6 +14,7 @@
 #import "MainMenu.h"
 #import "WinDialog.h"
 #import "MySoundManager.h"
+#import "SimpleAudioEngine.h"
 
 @implementation Game
 
@@ -126,7 +127,6 @@ Game * __sg = nil;
         
         [[NSTimer scheduledTimerWithTimeInterval:30.0f target:self selector:@selector(updateTurnLimit) userInfo:nil repeats:YES] fire];
         
-        [[MySoundManager soundManager] setMusicEnabled:[[GameDTO dto].musicOnOff boolValue]];
         [[MySoundManager soundManager] play:@"game01.mp3"];
 	}
 	return self;
@@ -245,7 +245,8 @@ Game * __sg = nil;
         if(CGRectContainsPoint(fo.view.boundingBox, pt)) {
             draggedItem = fo;
             draggedItemInitialPosition = fo.view.position;
-            
+
+            [[SimpleAudioEngine sharedEngine] playEffect:@"score.wav"];
             [self startSelectionAnimation:fo];
             break;
         }
@@ -284,6 +285,7 @@ Game * __sg = nil;
             if (![field tryToDrop:selectedItem :ptOnField]) {
                 //[draggedItem.view runAction: [CCMoveTo actionWithDuration:0.2f position:draggedItemInitialPosition]];
             } else {
+                [[SimpleAudioEngine sharedEngine] playEffect:@"button.wav"];
                 id tmp = selectedItem;
                 [self stopSelectionAnimation];
                 [next removeObject:tmp];
@@ -300,7 +302,7 @@ Game * __sg = nil;
                 [draggedItem.view runAction: [CCMoveTo actionWithDuration:0.2f position:draggedItemInitialPosition]];                
                 [self startSelectionAnimation:draggedItem];
             } else {
-                
+                [[SimpleAudioEngine sharedEngine] playEffect:@"button.wav"];
                 [next removeObject:draggedItem];
                 [self doTurn];
             }
