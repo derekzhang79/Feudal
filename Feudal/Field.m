@@ -9,7 +9,7 @@
 #import "Field.h"
 #import "Game.h"
 #import "GameDTO.h"
-
+#import "SimpleAudioEngine.h"
 
 @implementation Field
 
@@ -262,6 +262,9 @@ static int offsets[4][2] = {{-1, 0}, {0, -1}, {1, 0}, {0, 1}};
         
         //self.scoreBonus += ;
         [[Game game] addMoney:targetObject.view.position :(list.count + list.count - 3) * (targetObject.level + 1)];
+        
+        
+
         return true;
     }
     return false;
@@ -269,12 +272,13 @@ static int offsets[4][2] = {{-1, 0}, {0, -1}, {1, 0}, {0, 1}};
 
 -(void)drop:(FieldObject *) fo X:(int) x Y:(int)y {
 
+
+    
     if (fo.objectType == FO_SPECIAL && fo.level == 0) {
         
         [self dragonFly:fo :x :y];
         return;
     }
-    
     
     [self put:fo y:y x:x :YES];
 

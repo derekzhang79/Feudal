@@ -14,6 +14,7 @@
 #import "MainMenu.h"
 #import "WinDialog.h"
 #import "MySoundManager.h"
+#import "SimpleAudioEngine.h"
 
 @implementation Game
 
@@ -227,7 +228,8 @@ Game * __sg = nil;
         if(CGRectContainsPoint(fo.view.boundingBox, pt)) {
             draggedItem = fo;
             draggedItemInitialPosition = fo.view.position;
-            
+
+            [[SimpleAudioEngine sharedEngine] playEffect:@"button.wav"];
             [self startSelectionAnimation:fo];
             break;
         }
@@ -266,6 +268,7 @@ Game * __sg = nil;
             if (![field tryToDrop:selectedItem :ptOnField]) {
                 //[draggedItem.view runAction: [CCMoveTo actionWithDuration:0.2f position:draggedItemInitialPosition]];
             } else {
+                [[SimpleAudioEngine sharedEngine] playEffect:@"place_figure.wav"];
                 id tmp = selectedItem;
                 [self stopSelectionAnimation];
                 [next removeObject:tmp];
@@ -282,7 +285,7 @@ Game * __sg = nil;
                 [draggedItem.view runAction: [CCMoveTo actionWithDuration:0.2f position:draggedItemInitialPosition]];                
                 [self startSelectionAnimation:draggedItem];
             } else {
-                
+                [[SimpleAudioEngine sharedEngine] playEffect:@"place_figure.wav"];
                 [next removeObject:draggedItem];
                 [self doTurn];
             }
