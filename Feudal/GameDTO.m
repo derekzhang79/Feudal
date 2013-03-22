@@ -81,6 +81,8 @@
     else{
         self.money = @(100);
         self.turnLimit = @(TURN_LIMIT);
+        self.musicOnOff = [NSNumber numberWithInteger:YES];
+        self.soundOnOff = [NSNumber numberWithInteger:YES];
     }
 }
 

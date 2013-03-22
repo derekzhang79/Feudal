@@ -24,6 +24,8 @@
 @property (nonatomic, strong) NSArray *levels;
 @property (nonatomic, strong) NSDate *lastUpdateTime;
 @property (nonatomic, strong) NSDate *lastSharingTime;
+@property (nonatomic, strong) NSNumber *musicOnOff;
+@property (nonatomic, strong) NSNumber *soundOnOff;
 
 + (GameDTO *) dto;
 - (void) save;

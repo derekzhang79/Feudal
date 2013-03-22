@@ -50,8 +50,53 @@
         [background addChild:menu];
         
         menu.position = ccp(background.boundingBox.size.width / 2,  FSZ(60));
+        
+        
+        CCMenuItem *soundOnItem = [CCMenuItemImage itemWithNormalImage:@"emptyOn.png"
+                                                         selectedImage:@"emptyOn.png"
+                                                                 block:^(id sender){}];
+        [Game addLabel:@"Sound on" :soundOnItem];
+        
+        CCMenuItem *soundOffItem = [CCMenuItemImage itemWithNormalImage:@"empty.png"
+                                                          selectedImage:@"empty.png"
+                                                                  block:^(id sender){}];
+        [Game addLabel:@"Sound off" :soundOffItem];
+        
+        CCMenuItem *musicOnItem = [CCMenuItemImage itemWithNormalImage:@"emptyOn.png"
+                                                         selectedImage:@"emptyOn.png"
+                                                                 block:^(id sender){}];
+        [Game addLabel:@"Music on" :musicOnItem];
+        
+        CCMenuItem *musicOffItem = [CCMenuItemImage itemWithNormalImage:@"empty.png"
+                                                          selectedImage:@"empty.png"
+                                                                  block:^(id sender){}];
+        [Game addLabel:@"Music off" :musicOffItem];
+        
+        CCMenuItemToggle *toggleSound = [CCMenuItemToggle itemWithTarget:self selector:@selector(toggleSoundSelector:) items:soundOnItem, soundOffItem, nil];
+        CCMenuItemToggle *toggleMusic = [CCMenuItemToggle itemWithTarget:self selector:@selector(toggleMusicSelector:) items:musicOnItem, musicOffItem, nil];
+        
+        [toggleSound setSelectedIndex:[[GameDTO dto].soundOnOff integerValue]];
+        [toggleMusic setSelectedIndex:[[GameDTO dto].musicOnOff integerValue]];
+        
+        CCMenu * menu2 = [CCMenu menuWithItems:toggleSound, toggleMusic, nil];
+        [menu2 alignItemsVertically];
+        [background addChild:menu2];
+        
+        menu2.position = ccp(background.boundingBox.size.width / 2,  background.boundingBox.size.height / 2);
     }
     return self;
+}
+
+- (IBAction)toggleSoundSelector:(id)sender {
+    CCMenuItemToggle *toggleSound = (CCMenuItemToggle *)sender;
+    [GameDTO dto].soundOnOff = [NSNumber numberWithInteger:toggleSound.selectedIndex];
+    [[GameDTO dto] save];
+}
+
+- (IBAction)toggleMusicSelector:(id)sender {
+    CCMenuItemToggle *toggleMusic = (CCMenuItemToggle *)sender;
+    [GameDTO dto].musicOnOff = [NSNumber numberWithInteger:toggleMusic.selectedIndex];
+    [[GameDTO dto] save];
 }
 
 @end
