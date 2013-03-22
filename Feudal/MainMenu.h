@@ -14,6 +14,7 @@
     
 }
 
-+(CCScene *) scene;
++ (CCScene *) scene;
++ (void) showOptionsMenu:(id)sender;
 
 @end

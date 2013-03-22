@@ -54,23 +54,13 @@
             [GameDTO dto].levels = nil;
             [GameDTO dto].types = nil;
             [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[Game scene] withColor:ccWHITE]];
-        
         }];
         
         [Game addLabel:@"New Game" :start];
 
         
         CCMenuItem * options = [CCMenuItemImage itemWithNormalImage:@"empty.png" selectedImage:@"emptyOn.png" block:^(id sender) {
-                Options * shop  = [Options node];
-                shop.tag = 137;
-                [self addChild:shop];
-                shop.position = [((CCMenuItem *)sender) convertToWorldSpace:((CCMenuItem *)sender).position];
-                shop.scale = 0.1f;
-                
-                
-                CCMoveTo * moveAction = [CCMoveTo actionWithDuration:0.25f position:ccp( size.width /2 , size.height/2 )];
-                CCScaleTo * scaleAction = [CCScaleTo actionWithDuration:0.25f scale:1.0f];
-                [shop runAction:[CCSpawn actionOne:moveAction two:scaleAction]];
+            [MainMenu showOptionsMenu:self];
         }];
         
         [Game addLabel:@"Options" :options];
@@ -123,6 +113,25 @@
         [[MySoundManager soundManager] play:@"game02.mp3"];
 	}
 	return self;
+}
+
++ (void) showOptionsMenu:(id)sender {
+    CGSize size = [[CCDirector sharedDirector] winSize];
+    OptionsMode mode;
+    if ([sender isKindOfClass:MainMenu.class]) {
+        mode = OptionsModeDefault;
+    } else {
+        mode = OptionsModeShowsAbandon;
+    }
+    Options * options  = [[[Options alloc] initWithMode:mode] autorelease];
+    options.tag = 138;
+    [sender addChild:options];
+    options.position = [((CCMenuItem *)sender) convertToWorldSpace:((CCMenuItem *)sender).position];
+    options.scale = 0.1f;
+    
+    CCMoveTo * moveAction = [CCMoveTo actionWithDuration:0.25f position:ccp( size.width /2 , size.height/2 )];
+    CCScaleTo * scaleAction = [CCScaleTo actionWithDuration:0.25f scale:1.0f];
+    [options runAction:[CCSpawn actionOne:moveAction two:scaleAction]];
 }
 
 - (void)sharerFinishedSending:(SHKSharer *)sharer {

@@ -12,10 +12,15 @@
 #import "GameDTO.h"
 #import "Options.h"
 #import "MySoundManager.h"
+#import "MainMenu.h"
 
 @implementation Options
 
--(id) init
+- (id) init {
+    return [self initWithMode:OptionsModeDefault];
+}
+
+-(id) initWithMode:(OptionsMode)mode
 {
 	if( (self=[super init]) ) {
         CCSprite * background = [CCSprite spriteWithFile:@"fon_large.png"];
@@ -50,7 +55,7 @@
 		CCMenu * menu = [CCMenu menuWithItems:ok, nil];
         [background addChild:menu];
         
-        menu.position = ccp(background.boundingBox.size.width / 2,  FSZ(60));
+        menu.position = ccp(background.boundingBox.size.width / 2,  FSZ(62));
         
         
         CCMenuItem *soundOnItem = [CCMenuItemImage itemWithNormalImage:@"emptyOn.png"
@@ -79,13 +84,27 @@
         [toggleSound setSelectedIndex:![[GameDTO dto].soundOnOff integerValue]];
         [toggleMusic setSelectedIndex:![[GameDTO dto].musicOnOff integerValue]];
         
-        CCMenu * menu2 = [CCMenu menuWithItems:toggleSound, toggleMusic, nil];
-        [menu2 alignItemsVertically];
-        [background addChild:menu2];
+        CCMenu *soundMenu = [CCMenu menuWithItems:toggleSound, toggleMusic, nil];
         
-        menu2.position = ccp(background.boundingBox.size.width / 2,  background.boundingBox.size.height / 2);
+        if(mode == OptionsModeShowsAbandon) {
+            CCMenuItem *abandon = [CCMenuItemImage itemWithNormalImage:@"empty.png" selectedImage:@"emptyOn.png"block:^(id sender){
+                [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[MainMenu scene] withColor:ccWHITE]];
+            }];
+            
+            [Game addLabel:@"Exit" :abandon];
+            [soundMenu addChild:abandon];
+        }
+        
+        [soundMenu alignItemsVertically];
+        [background addChild:soundMenu];
+        
+        soundMenu.position = ccp(background.boundingBox.size.width / 2,  background.boundingBox.size.height / 2);
     }
     return self;
+}
+
+- (void)showAbandonGameOption {
+    
 }
 
 - (IBAction)toggleSoundSelector:(id)sender {

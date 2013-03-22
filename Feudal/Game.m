@@ -106,6 +106,24 @@ Game * __sg = nil;
         
         menu.position = ccp(nw.width / 2 + FSZ(100), FSZ(40));
         
+        CCMenuItem * closeItem = [CCMenuItemImage itemWithNormalImage:@"temp-square.png" selectedImage:@"temp-square.png" block:^(id sender) {
+            //[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[MainMenu scene] withColor:ccWHITE]];
+        }];
+        
+        CCMenuItem * optionsItem = [CCMenuItemImage itemWithNormalImage:@"temp-square.png" selectedImage:@"temp-square.png" block:^(id sender) {
+            [MainMenu showOptionsMenu:self];
+        }];
+        
+        CCMenu * closeMenu = [CCMenu menuWithItems:closeItem, nil];
+        [background addChild:closeMenu];
+        
+        closeMenu.position = ccp(FSZ(40), nw.height - FSZ(30));
+        
+        CCMenu * optionsMenu = [CCMenu menuWithItems:optionsItem, nil];
+        [background addChild:optionsMenu];
+        
+        optionsMenu.position = ccp(nw.width - FSZ(40), nw.height - FSZ(30));
+        
         [[NSTimer scheduledTimerWithTimeInterval:30.0f target:self selector:@selector(updateTurnLimit) userInfo:nil repeats:YES] fire];
         
         [[MySoundManager soundManager] setMusicEnabled:[[GameDTO dto].musicOnOff boolValue]];
