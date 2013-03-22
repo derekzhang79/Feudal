@@ -43,8 +43,7 @@
             [GameDTO dto].types = nil;
             [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[MainMenu scene] withColor:ccWHITE]];
             
-		}
-                           ];
+		}];
 		
         [Game addLabel:@"Ok" :ok];
 		CCMenu * menu = [CCMenu menuWithItems:ok, nil];
@@ -52,7 +51,9 @@
         
         menu.position = ccp(background.boundingBox.size.width / 2 + FSZ(10),  FSZ(40));
         
-        
+        CCMenu * socialMenu = [MainMenu socialMenuWithDelegate:nil];
+        socialMenu.position = ccp(FSZ(80), FSZ(40));
+        [background addChild:socialMenu];
     }
     
     return self;

@@ -368,7 +368,8 @@ Game * __sg = nil;
         [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[MainMenu scene] withColor:ccWHITE]];
     }
     
-    if ([field findObjectsByType:FO_FOOD :5].count > 0 && [field findObjectsByType:FO_FOOD :5].count > 0) {
+    //if ([field findObjectsByType:FO_FOOD :5].count > 0 && [field findObjectsByType:FO_FOOD :5].count > 0)
+    {
         // Win!!!
         
         self.isTouchEnabled = NO;
@@ -378,10 +379,7 @@ Game * __sg = nil;
         WinDialog * win  = [WinDialog node];
         [self addChild:win];
         win.position = ccp(size.width / 2, size.height / 2);
-        
     }
-    
-    
 }
 
 

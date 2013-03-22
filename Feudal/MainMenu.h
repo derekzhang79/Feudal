@@ -16,5 +16,6 @@
 
 + (CCScene *) scene;
 + (void) showOptionsMenu:(id)sender;
++ (CCMenu *) socialMenuWithDelegate:(id)delegate;
 
 @end

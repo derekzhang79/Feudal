@@ -84,36 +84,41 @@
         [menu alignItemsVertically];
         [background addChild:menu];
         
-        CCMenuItem * facebook = [CCMenuItemImage itemWithNormalImage:@"facebook.png" selectedImage:@"facebook.png" block:^(id sender) {
-            SHKItem *item = [SHKItem text:@"test text"];
-            SHKSharer* sharer = [[[SHKFacebook alloc] init] autorelease];
-            sharer.shareDelegate = self;
-            [sharer loadItem:item];
-            
-            [sharer share];
-        }];
-        
-        CCMenuItem * twitter = [CCMenuItemImage itemWithNormalImage:@"twitter.png" selectedImage:@"twitter.png" block:^(id sender) {
-            SHKItem *item = [SHKItem text:@"test text"];
-            SHKSharer* sharer = [[[SHKTwitter alloc] init] autorelease];
-            sharer.shareDelegate = self;
-            [sharer loadItem:item];
-            
-            [sharer share];
-        }];
+        CCMenu * socialMenu = [MainMenu socialMenuWithDelegate:self];
+        socialMenu.position = ccp(FSZ(80), FSZ(40));
+        [background addChild:socialMenu];
         
         int offsetH = ((CCMenuItem *)([menu.children objectAtIndex:0])).position.y + ((CCMenuItem *)([menu.children objectAtIndex:0])).boundingBox.size.height / 2;
         menu.position = ccpSub(logo.position, ccp(0, logo.boundingBox.size.height / 2 + offsetH));
-        
-        CCMenu * socialMenu = [CCMenu menuWithItems:facebook, twitter, nil];
-        socialMenu.position = ccp(FSZ(80), FSZ(40));
-        [socialMenu alignItemsHorizontally];
-        [background addChild:socialMenu];
         
         [[MySoundManager soundManager] setMusicEnabled:[[GameDTO dto].musicOnOff boolValue]];
         [[MySoundManager soundManager] play:@"game02.mp3"];
 	}
 	return self;
+}
+
++ (CCMenu *) socialMenuWithDelegate:(id)delegate {
+    CCMenuItem * facebook = [CCMenuItemImage itemWithNormalImage:@"facebook.png" selectedImage:@"facebook.png" block:^(id sender) {
+        SHKItem *item = [SHKItem text:@"test text"];
+        SHKSharer* sharer = [[[SHKFacebook alloc] init] autorelease];
+        sharer.shareDelegate = delegate;
+        [sharer loadItem:item];
+        
+        [sharer share];
+    }];
+    
+    CCMenuItem * twitter = [CCMenuItemImage itemWithNormalImage:@"twitter.png" selectedImage:@"twitter.png" block:^(id sender) {
+        SHKItem *item = [SHKItem text:@"test text"];
+        SHKSharer* sharer = [[[SHKTwitter alloc] init] autorelease];
+        sharer.shareDelegate = delegate;
+        [sharer loadItem:item];
+        
+        [sharer share];
+    }];
+    
+    CCMenu * socialMenu = [CCMenu menuWithItems:facebook, twitter, nil];
+    [socialMenu alignItemsHorizontally];
+    return socialMenu;
 }
 
 + (void) showOptionsMenu:(id)sender {

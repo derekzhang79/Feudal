@@ -20,8 +20,8 @@
     if( (self=[super init])) {
         currentMusic = nil;
         musicEnabled = [[GameDTO dto].musicOnOff boolValue];
-        [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"game01.mp3"];
-        [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"game02.mp3"];
+//        [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"game01.mp3"];
+//        [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"game02.mp3"];
     }
     
     return self;
