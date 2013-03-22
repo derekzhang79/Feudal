@@ -97,8 +97,7 @@ Game * __sg = nil;
                 [shop runAction:[CCSpawn actionOne:moveAction two:scaleAction]];
             }
             
-		}
-        ];
+		}];
         
         [Game addLabel:@"Shop" :marketplace];
         
@@ -109,7 +108,7 @@ Game * __sg = nil;
         
         [[NSTimer scheduledTimerWithTimeInterval:30.0f target:self selector:@selector(updateTurnLimit) userInfo:nil repeats:YES] fire];
         
-        
+        [[MySoundManager soundManager] setMusicEnabled:[[GameDTO dto].musicOnOff boolValue]];
         [[MySoundManager soundManager] play:@"game01.mp3"];
 	}
 	return self;

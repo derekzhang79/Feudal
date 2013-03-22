@@ -29,8 +29,10 @@
 -(void)play:(NSString *)music {
     if (currentMusic == nil || [music compare:currentMusic] != 0) {
         currentMusic = music;
-        [[SimpleAudioEngine sharedEngine] playBackgroundMusic:currentMusic];
         [SimpleAudioEngine sharedEngine].backgroundMusicVolume = 0.5f;
+        if (musicEnabled) {
+            [[SimpleAudioEngine sharedEngine] playBackgroundMusic:currentMusic];
+        }
     }
 }
 
@@ -40,7 +42,7 @@
 
 -(void)setMusicEnabled:(bool)enabled {
     musicEnabled = enabled;
-    if (enabled) {    
+    if (enabled && currentMusic) {
         [[SimpleAudioEngine sharedEngine] playBackgroundMusic:currentMusic];
     } else {
         [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];        

@@ -11,6 +11,7 @@
 #import "ccConfig.h"
 #import "GameDTO.h"
 #import "Options.h"
+#import "MySoundManager.h"
 
 @implementation Options
 
@@ -75,8 +76,8 @@
         CCMenuItemToggle *toggleSound = [CCMenuItemToggle itemWithTarget:self selector:@selector(toggleSoundSelector:) items:soundOnItem, soundOffItem, nil];
         CCMenuItemToggle *toggleMusic = [CCMenuItemToggle itemWithTarget:self selector:@selector(toggleMusicSelector:) items:musicOnItem, musicOffItem, nil];
         
-        [toggleSound setSelectedIndex:[[GameDTO dto].soundOnOff integerValue]];
-        [toggleMusic setSelectedIndex:[[GameDTO dto].musicOnOff integerValue]];
+        [toggleSound setSelectedIndex:![[GameDTO dto].soundOnOff integerValue]];
+        [toggleMusic setSelectedIndex:![[GameDTO dto].musicOnOff integerValue]];
         
         CCMenu * menu2 = [CCMenu menuWithItems:toggleSound, toggleMusic, nil];
         [menu2 alignItemsVertically];
@@ -89,14 +90,15 @@
 
 - (IBAction)toggleSoundSelector:(id)sender {
     CCMenuItemToggle *toggleSound = (CCMenuItemToggle *)sender;
-    [GameDTO dto].soundOnOff = [NSNumber numberWithInteger:toggleSound.selectedIndex];
+    [GameDTO dto].soundOnOff = [NSNumber numberWithInteger:!toggleSound.selectedIndex];
     [[GameDTO dto] save];
 }
 
 - (IBAction)toggleMusicSelector:(id)sender {
     CCMenuItemToggle *toggleMusic = (CCMenuItemToggle *)sender;
-    [GameDTO dto].musicOnOff = [NSNumber numberWithInteger:toggleMusic.selectedIndex];
+    [GameDTO dto].musicOnOff = [NSNumber numberWithInteger:!toggleMusic.selectedIndex];
     [[GameDTO dto] save];
+    [[MySoundManager soundManager] setMusicEnabled:[[GameDTO dto].musicOnOff boolValue]];
 }
 
 @end

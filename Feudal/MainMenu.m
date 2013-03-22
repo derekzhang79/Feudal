@@ -119,7 +119,7 @@
         [socialMenu alignItemsHorizontally];
         [background addChild:socialMenu];
         
-        
+        [[MySoundManager soundManager] setMusicEnabled:[[GameDTO dto].musicOnOff boolValue]];
         [[MySoundManager soundManager] play:@"game02.mp3"];
 	}
 	return self;
