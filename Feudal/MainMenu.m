@@ -13,6 +13,7 @@
 #import "SHKTwitter.h"
 #import "SHKFacebook.h"
 #import "Options.h"
+#import "MySoundManager.h"
 
 @implementation MainMenu
 
@@ -117,6 +118,9 @@
         socialMenu.position = ccp(FSZ(80), FSZ(40));
         [socialMenu alignItemsHorizontally];
         [background addChild:socialMenu];
+        
+        
+        [[MySoundManager soundManager] play:@"game02.mp3"];
 	}
 	return self;
 }

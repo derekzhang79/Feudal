@@ -254,6 +254,14 @@
 		DDA3C9F41642BB1200223401 /* Field.m in Sources */ = {isa = PBXBuildFile; fileRef = DDA3C9F31642BB1200223401 /* Field.m */; };
 		DDA3C9F71642BB7700223401 /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = DDA3C9F61642BB7700223401 /* Game.m */; };
 		DDA3C9FA16458C0C00223401 /* FieldObject.m in Sources */ = {isa = PBXBuildFile; fileRef = DDA3C9F916458C0C00223401 /* FieldObject.m */; };
+		DDB3C55316FC40AA00C6B93D /* MySoundManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DDB3C55216FC40AA00C6B93D /* MySoundManager.m */; };
+		DDB3C57D16FC40EB00C6B93D /* button.wav in Resources */ = {isa = PBXBuildFile; fileRef = DDB3C57816FC40EB00C6B93D /* button.wav */; };
+		DDB3C57E16FC40EB00C6B93D /* j04.wav in Resources */ = {isa = PBXBuildFile; fileRef = DDB3C57916FC40EB00C6B93D /* j04.wav */; };
+		DDB3C57F16FC40EB00C6B93D /* move_brick.wav in Resources */ = {isa = PBXBuildFile; fileRef = DDB3C57A16FC40EB00C6B93D /* move_brick.wav */; };
+		DDB3C58016FC40EB00C6B93D /* place_figure.wav in Resources */ = {isa = PBXBuildFile; fileRef = DDB3C57B16FC40EB00C6B93D /* place_figure.wav */; };
+		DDB3C58116FC40EB00C6B93D /* score.wav in Resources */ = {isa = PBXBuildFile; fileRef = DDB3C57C16FC40EB00C6B93D /* score.wav */; };
+		DDB3C58416FC413200C6B93D /* game01.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DDB3C58216FC413200C6B93D /* game01.mp3 */; };
+		DDB3C58516FC413200C6B93D /* game02.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DDB3C58316FC413200C6B93D /* game02.mp3 */; };
 		DDBC0E3316E4ED9A00E83674 /* fireball_fx.png in Resources */ = {isa = PBXBuildFile; fileRef = DDBC0E3216E4ED9A00E83674 /* fireball_fx.png */; };
 		DDBC0E5616E62A8D00E83674 /* dragon0097.png in Resources */ = {isa = PBXBuildFile; fileRef = DDBC0E3916E62A8D00E83674 /* dragon0097.png */; };
 		DDBC0E5716E62A8D00E83674 /* dragon0095.png in Resources */ = {isa = PBXBuildFile; fileRef = DDBC0E3A16E62A8D00E83674 /* dragon0095.png */; };
@@ -968,6 +976,15 @@
 		DDA3C9F61642BB7700223401 /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Game.m; sourceTree = "<group>"; };
 		DDA3C9F816458C0C00223401 /* FieldObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FieldObject.h; path = ../FieldObject.h; sourceTree = "<group>"; };
 		DDA3C9F916458C0C00223401 /* FieldObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FieldObject.m; path = ../FieldObject.m; sourceTree = "<group>"; };
+		DDB3C55116FC40AA00C6B93D /* MySoundManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MySoundManager.h; sourceTree = "<group>"; };
+		DDB3C55216FC40AA00C6B93D /* MySoundManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MySoundManager.m; sourceTree = "<group>"; };
+		DDB3C57816FC40EB00C6B93D /* button.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = button.wav; path = Resources/button.wav; sourceTree = "<group>"; };
+		DDB3C57916FC40EB00C6B93D /* j04.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = j04.wav; path = Resources/j04.wav; sourceTree = "<group>"; };
+		DDB3C57A16FC40EB00C6B93D /* move_brick.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = move_brick.wav; path = Resources/move_brick.wav; sourceTree = "<group>"; };
+		DDB3C57B16FC40EB00C6B93D /* place_figure.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = place_figure.wav; path = Resources/place_figure.wav; sourceTree = "<group>"; };
+		DDB3C57C16FC40EB00C6B93D /* score.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = score.wav; path = Resources/score.wav; sourceTree = "<group>"; };
+		DDB3C58216FC413200C6B93D /* game01.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = game01.mp3; path = Resources/game01.mp3; sourceTree = "<group>"; };
+		DDB3C58316FC413200C6B93D /* game02.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = game02.mp3; path = Resources/game02.mp3; sourceTree = "<group>"; };
 		DDBC0E3216E4ED9A00E83674 /* fireball_fx.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = fireball_fx.png; path = Resources/fireball_fx.png; sourceTree = "<group>"; };
 		DDBC0E3916E62A8D00E83674 /* dragon0097.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dragon0097.png; path = Resources/dragon/dragon0097.png; sourceTree = "<group>"; };
 		DDBC0E3A16E62A8D00E83674 /* dragon0095.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dragon0095.png; path = Resources/dragon/dragon0095.png; sourceTree = "<group>"; };
@@ -1207,6 +1224,8 @@
 		DD65AF4916413F3000A0DBD1 /* Feudal */ = {
 			isa = PBXGroup;
 			children = (
+				DDB3C55116FC40AA00C6B93D /* MySoundManager.h */,
+				DDB3C55216FC40AA00C6B93D /* MySoundManager.m */,
 				DD9008EC16F351490089FA48 /* WinDialog.h */,
 				DD9008ED16F351490089FA48 /* WinDialog.m */,
 				508735E316F3561F002A78A6 /* TestFlightSDK1.1 */,
@@ -1242,6 +1261,13 @@
 		DD65AF4A16413F3000A0DBD1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				DDB3C58216FC413200C6B93D /* game01.mp3 */,
+				DDB3C58316FC413200C6B93D /* game02.mp3 */,
+				DDB3C57816FC40EB00C6B93D /* button.wav */,
+				DDB3C57916FC40EB00C6B93D /* j04.wav */,
+				DDB3C57A16FC40EB00C6B93D /* move_brick.wav */,
+				DDB3C57B16FC40EB00C6B93D /* place_figure.wav */,
+				DDB3C57C16FC40EB00C6B93D /* score.wav */,
 				DD90091316F352C70089FA48 /* fon-hd.png */,
 				DD90091416F352C70089FA48 /* fon-ipadhd.png */,
 				DD90091516F352C70089FA48 /* fon.png */,
@@ -2186,6 +2212,13 @@
 				DD90091816F352C70089FA48 /* fon.png in Resources */,
 				508735E916F3561F002A78A6 /* README.md in Resources */,
 				508735EA16F3561F002A78A6 /* release_notes.md in Resources */,
+				DDB3C57D16FC40EB00C6B93D /* button.wav in Resources */,
+				DDB3C57E16FC40EB00C6B93D /* j04.wav in Resources */,
+				DDB3C57F16FC40EB00C6B93D /* move_brick.wav in Resources */,
+				DDB3C58016FC40EB00C6B93D /* place_figure.wav in Resources */,
+				DDB3C58116FC40EB00C6B93D /* score.wav in Resources */,
+				DDB3C58416FC413200C6B93D /* game01.mp3 in Resources */,
+				DDB3C58516FC413200C6B93D /* game02.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2309,6 +2342,7 @@
 				500CB34216F3362F00566586 /* MySHKConfigurator.m in Sources */,
 				DD9008EE16F351490089FA48 /* WinDialog.m in Sources */,
 				509ECDC416F36DAD00DFC872 /* Options.m in Sources */,
+				DDB3C55316FC40AA00C6B93D /* MySoundManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

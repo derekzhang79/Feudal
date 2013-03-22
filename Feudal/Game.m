@@ -13,6 +13,7 @@
 #import "GameDTO.h"
 #import "MainMenu.h"
 #import "WinDialog.h"
+#import "MySoundManager.h"
 
 @implementation Game
 
@@ -107,6 +108,9 @@ Game * __sg = nil;
         menu.position = ccp(nw.width / 2 + FSZ(100), FSZ(40));
         
         [[NSTimer scheduledTimerWithTimeInterval:30.0f target:self selector:@selector(updateTurnLimit) userInfo:nil repeats:YES] fire];
+        
+        
+        [[MySoundManager soundManager] play:@"game01.mp3"];
 	}
 	return self;
 }
