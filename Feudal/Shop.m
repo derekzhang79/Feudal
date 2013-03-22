@@ -121,54 +121,82 @@
         [self addChild:emptyNode];
         emptyNode.position = ccp(FSZ(-17), FSZ(145));
 		
-		ShopMenuItem *item1 = [ShopMenuItem itemWithString:@"10" picture:@"field.png" block:^(id sender) {
-			FieldObject * fo = [[FieldObject alloc] initWithType:FO_FOOD :0];
-            ShopMenuItem * item = (ShopMenuItem *)sender;
-            fo.view.position = [self convertToWorldSpace:item.position];
-            [parent_ addChild:fo.view];
-            [[Game game] purchaseItem:fo];
-            [[Game game] closeShop];            
-
+		ShopMenuItem *item1 = [ShopMenuItem itemWithString:@"20" picture:@"field.png" block:^(id sender) {
+            
+            
+            if ([GameDTO dto].money.integerValue >= 20) {
+                [GameDTO dto].money = @([GameDTO dto].money.integerValue - 20);
+                [[Game game] updateGameState];
+                
+                FieldObject * fo = [[FieldObject alloc] initWithType:FO_FOOD :0];
+                ShopMenuItem * item = (ShopMenuItem *)sender;
+                fo.view.position = [self convertToWorldSpace:item.position];
+                [parent_ addChild:fo.view];
+                [[Game game] purchaseItem:fo];
+                [[Game game] closeShop];
+            }
 		}];
 
-		ShopMenuItem *item2 = [ShopMenuItem itemWithString:@"20" picture:@"hay.png" block:^(id sender) {
-			FieldObject * fo = [[FieldObject alloc] initWithType:FO_FOOD :1];
-            ShopMenuItem * item = (ShopMenuItem *)sender;
-            fo.view.position = [self convertToWorldSpace:item.position];
-            [parent_ addChild:fo.view];
-            [[Game game] purchaseItem:fo];
-            [[Game game] closeShop];
+		ShopMenuItem *item2 = [ShopMenuItem itemWithString:@"50" picture:@"hay.png" block:^(id sender) {
+
+            if ([GameDTO dto].money.integerValue >= 50) {
+                [GameDTO dto].money = @([GameDTO dto].money.integerValue - 50);
+                [[Game game] updateGameState];
+                
+                FieldObject * fo = [[FieldObject alloc] initWithType:FO_FOOD :1];
+                ShopMenuItem * item = (ShopMenuItem *)sender;
+                fo.view.position = [self convertToWorldSpace:item.position];
+                [parent_ addChild:fo.view];
+                [[Game game] purchaseItem:fo];
+                [[Game game] closeShop];
+            }
             
 		}];
 
-		ShopMenuItem *item3 = [ShopMenuItem itemWithString:@"30" picture:@"flour.png" block:^(id sender) {
-			FieldObject * fo = [[FieldObject alloc] initWithType:FO_FOOD :2];
-            ShopMenuItem * item = (ShopMenuItem *)sender;
-            fo.view.position = [self convertToWorldSpace:item.position];
-            [parent_ addChild:fo.view];
-            [[Game game] purchaseItem:fo];
-            [[Game game] closeShop];
+		ShopMenuItem *item3 = [ShopMenuItem itemWithString:@"150" picture:@"flour.png" block:^(id sender) {
             
+            if ([GameDTO dto].money.integerValue >= 150) {
+                [GameDTO dto].money = @([GameDTO dto].money.integerValue - 150);
+                [[Game game] updateGameState];
+                
+                FieldObject * fo = [[FieldObject alloc] initWithType:FO_FOOD :2];
+                ShopMenuItem * item = (ShopMenuItem *)sender;
+                fo.view.position = [self convertToWorldSpace:item.position];
+                [parent_ addChild:fo.view];
+                [[Game game] purchaseItem:fo];
+                [[Game game] closeShop];
+            }
 		}];
 
         
-		ShopMenuItem *item4 = [ShopMenuItem itemWithString:@"40" picture:@"dragon.png" block:^(id sender) {
-			FieldObject * fo = [[FieldObject alloc] initWithType:FO_SPECIAL :0];
-            ShopMenuItem * item = (ShopMenuItem *)sender;
-            fo.view.position = [self convertToWorldSpace:item.position];
-            [parent_ addChild:fo.view];
-            [[Game game] purchaseItem:fo];
-            [[Game game] closeShop];
+		ShopMenuItem *item4 = [ShopMenuItem itemWithString:@"300" picture:@"dragon.png" block:^(id sender) {
             
+            if ([GameDTO dto].money.integerValue >= 300) {
+                [GameDTO dto].money = @([GameDTO dto].money.integerValue - 300);
+                [[Game game] updateGameState];
+                
+                FieldObject * fo = [[FieldObject alloc] initWithType:FO_SPECIAL :0];
+                ShopMenuItem * item = (ShopMenuItem *)sender;
+                fo.view.position = [self convertToWorldSpace:item.position];
+                [parent_ addChild:fo.view];
+                [[Game game] purchaseItem:fo];
+                [[Game game] closeShop];
+            
+            }
 		}];
 
-		ShopMenuItem *item5 = [ShopMenuItem itemWithString:@"50" picture:@"diamond.png" block:^(id sender) {
-			FieldObject * fo = [[FieldObject alloc] initWithType:FO_SPECIAL :1];
-            ShopMenuItem * item = (ShopMenuItem *)sender;
-            fo.view.position = [self convertToWorldSpace:item.position];
-            [parent_ addChild:fo.view];
-            [[Game game] purchaseItem:fo];
-            [[Game game] closeShop];
+		ShopMenuItem *item5 = [ShopMenuItem itemWithString:@"500" picture:@"diamond.png" block:^(id sender) {
+            if ([GameDTO dto].money.integerValue >= 500) {
+                [GameDTO dto].money = @([GameDTO dto].money.integerValue - 500);
+                [[Game game] updateGameState];
+                
+                FieldObject * fo = [[FieldObject alloc] initWithType:FO_SPECIAL :1];
+                ShopMenuItem * item = (ShopMenuItem *)sender;
+                fo.view.position = [self convertToWorldSpace:item.position];
+                [parent_ addChild:fo.view];
+                [[Game game] purchaseItem:fo];
+                [[Game game] closeShop];
+            }
             
 		}];
 

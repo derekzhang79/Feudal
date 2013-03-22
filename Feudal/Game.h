@@ -37,6 +37,7 @@
 
 +(Game *) game;
 
+-(void)updateGameState;
 -(void)generateNext;
 -(void)updateNext;
 -(CGPoint)nextPositionFromIndex:(int)index;
